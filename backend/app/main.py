@@ -28,9 +28,10 @@ app = FastAPI(
     title="Schedulink API",
     description="Smart Appointment Scheduler Backend",
     version="1.0.0",
-    docs_url="/docs" if DEBUG else None,  # Disable docs in production
-    redoc_url="/redoc" if DEBUG else None,
-    openapi_url="/openapi.json" if DEBUG else None
+    docs_url="/docs",  # Always enable docs
+    redoc_url="/redoc",  # Always enable redoc
+    openapi_url="/openapi.json",  # Always enable openapi
+    root_path="/api"  # Set root path for reverse proxy
 )
 
 # Enable CORS with environment-specific origins
@@ -321,5 +322,6 @@ def get_user_bookings(user_id: int, db: Session = Depends(get_db)):
 def health_check():
     """Health check endpoint"""
     return {"status": "healthy", "service": "schedulink-api"}
+
 
 
