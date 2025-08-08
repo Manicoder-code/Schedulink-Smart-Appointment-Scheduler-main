@@ -6,6 +6,7 @@ import SlotForm from './components/SlotForm';
 import UsersList from './components/UsersList';
 import SlotsList from './components/SlotsList';
 import WelcomeModal from './components/WelcomeModal';
+import Footer from './components/Footer';
 
 function AppContent() {
   // Refresh triggers to update lists when new items are created
@@ -83,46 +84,10 @@ function AppContent() {
           {userRole === 'master' && <UsersList refreshTrigger={userRefreshTrigger} />}
           <SlotsList refreshTrigger={slotRefreshTrigger} />
         </div>
-
-        {/* Footer */}
-        <footer className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
-          <div className="text-center text-gray-500 dark:text-gray-400">
-            <p className="mb-4 text-lg font-medium text-gray-700 dark:text-gray-300">
-              Built with React + Tailwind CSS • FastAPI • SQLite • Docker
-            </p>
-            <div className="text-sm mb-6">
-              The web page is best compatible with Google Chrome.Thank You!
-            {/* </div>
-              
-
-              <span>Frontend: http://localhost:3000</span>
-              <span>•</span>
-              {userRole === 'master' ? (
-                <a 
-                  href="http://localhost:8000/docs" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 hover:underline"
-                >
-                  Backend API: http://localhost:8000/docs
-                </a>
-              ) : (
-                <span>Backend API Available</span>
-              )} */}
-            </div>
-            
-            {/* Copyright */}
-            <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
-              <p className="text-sm text-gray-400 dark:text-gray-500">
-                © 2025 Cognizant Technology Solutions. All rights reserved.
-              </p>
-              <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">
-                Schedulink - Empowering businesses with smart scheduling solutions
-              </p>
-            </div>
-          </div>
-        </footer>
       </main>
+      
+      {/* Footer Component */}
+      <Footer />
     </div>
   );
 }
@@ -136,4 +101,5 @@ function App() {
 }
 
 export default App;
+
 
