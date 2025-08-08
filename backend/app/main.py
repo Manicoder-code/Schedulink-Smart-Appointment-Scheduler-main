@@ -11,17 +11,21 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
-# Set up logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
-# Create database tables
-models.Base.metadata.create_all(bind=engine)
-
 # Get environment configuration
 ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
 DEBUG = os.getenv("DEBUG", "true").lower() == "true"
 ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000,http://manikandan.info,https://manikandan.info,http://appointment-booking-platform-1644783152.ap-south-1.elb.amazonaws.com").split(",")
+
+# Set up logging
+log_level = logging.DEBUG if DEBUG else logging.INFO
+logging.basicConfig(
+    level=log_level,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
+# Create database tables
+models.Base.metadata.create_all(bind=engine)
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -321,5 +325,4 @@ def get_user_bookings(user_id: int, db: Session = Depends(get_db)):
 def health_check():
     """Health check endpoint"""
     return {"status": "healthy", "service": "schedulink-api"}
-
 
