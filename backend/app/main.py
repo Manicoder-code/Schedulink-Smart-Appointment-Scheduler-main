@@ -1,6 +1,7 @@
 import os
 from fastapi import FastAPI, Depends, HTTPException, Body, Path, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
 from sqlalchemy.orm import Session
 from app import models, schemas
 from app.database import engine, get_db
@@ -11,24 +12,28 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
-# Set up logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
-# Create database tables
-models.Base.metadata.create_all(bind=engine)
-
 # Get environment configuration
 ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
 DEBUG = os.getenv("DEBUG", "true").lower() == "true"
 ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000,http://manikandan.info,https://manikandan.info,http://appointment-booking-platform-1644783152.ap-south-1.elb.amazonaws.com").split(",")
+
+# Set up logging
+log_level = logging.DEBUG if DEBUG else logging.INFO
+logging.basicConfig(
+    level=log_level,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
+# Create database tables
+models.Base.metadata.create_all(bind=engine)
 
 # Initialize FastAPI app
 app = FastAPI(
     title="Schedulink API",
     description="Smart Appointment Scheduler Backend",
     version="1.0.0",
-    docs_url="/docs" if DEBUG else None,  # Disable docs in production
+    docs_url=None,  # Disable default docs to use custom redirect
     redoc_url="/redoc" if DEBUG else None,
     openapi_url="/openapi.json" if DEBUG else None
 )
@@ -53,6 +58,75 @@ def read_root():
 def test_endpoint():
     logger.info("Test endpoint accessed")
     return {"status": "API is working", "timestamp": "2025-08-06"}
+
+# Custom docs endpoint that redirects to Swagger Editor
+@app.get("/docs")
+def docs_redirect():
+    """Redirect to Swagger Editor with OpenAPI spec"""
+    swagger_editor_url = "https://editor.swagger.io/?url=http://localhost:8081/api/openapi.json"
+    
+    html_content = f"""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Schedulink API Documentation</title>
+        <meta http-equiv="refresh" content="2;url={swagger_editor_url}">
+        <style>
+            body {{
+                font-family: Arial, sans-serif;
+                text-align: center;
+                padding: 50px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }}
+            .container {{
+                background: rgba(255,255,255,0.95);
+                color: #333;
+                padding: 40px;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            }}
+            .spinner {{
+                border: 4px solid #f3f3f3;
+                border-top: 4px solid #667eea;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                animation: spin 1s linear infinite;
+                margin: 20px auto;
+            }}
+            @keyframes spin {{
+                0% {{ transform: rotate(0deg); }}
+                100% {{ transform: rotate(360deg); }}
+            }}
+            a {{
+                color: #667eea;
+                text-decoration: none;
+                font-weight: bold;
+            }}
+            a:hover {{
+                text-decoration: underline;
+            }}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>🚀 Schedulink API Documentation</h1>
+            <div class="spinner"></div>
+            <p>Redirecting to Swagger Editor...</p>
+            <p><small>Your API documentation will open automatically</small></p>
+            <p><a href="{swagger_editor_url}">Click here if not redirected</a></p>
+        </div>
+    </body>
+    </html>
+    """
+    
+    return HTMLResponse(content=html_content)
 
 # ===== USER ENDPOINTS =====
 
@@ -321,5 +395,6 @@ def get_user_bookings(user_id: int, db: Session = Depends(get_db)):
 def health_check():
     """Health check endpoint"""
     return {"status": "healthy", "service": "schedulink-api"}
+
 
 

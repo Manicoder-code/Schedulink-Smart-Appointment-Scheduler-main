@@ -1,4 +1,5 @@
 import api from '../axios';
+import { apiCache, debounce, requestDeduplicator } from '../utils/debounce';
 
 // ===== API SERVICE LAYER =====
 
@@ -8,6 +9,10 @@ export const apiService = {
     create: async (userData) => {
       try {
         const response = await api.post('/users', userData);
+        
+        // Clear users cache when new user is created
+        apiCache.clear();
+        
         return { success: true, data: response.data };
       } catch (error) {
         console.error('Error creating user:', error);
@@ -19,16 +24,30 @@ export const apiService = {
     },
 
     getAll: async () => {
-      try {
-        const response = await api.get('/users');
-        return { success: true, data: response.data };
-      } catch (error) {
-        console.error('Error fetching users:', error);
-        return { 
-          success: false, 
-          error: error.response?.data?.detail || 'Failed to fetch users' 
-        };
-      }
+      return requestDeduplicator.deduplicate('users_getAll', async () => {
+        try {
+          // Check cache first
+          const cacheKey = 'users_all';
+          const cached = apiCache.get(cacheKey);
+          if (cached) {
+            return { success: true, data: cached };
+          }
+
+          const response = await api.get('/users');
+          const data = response.data;
+          
+          // Cache the result
+          apiCache.set(cacheKey, data);
+          
+          return { success: true, data };
+        } catch (error) {
+          console.error('Error fetching users:', error);
+          return { 
+            success: false, 
+            error: error.response?.data?.detail || 'Failed to fetch users' 
+          };
+        }
+      });
     },
 
     getById: async (userId) => {
@@ -86,6 +105,10 @@ export const apiService = {
         };
         
         const response = await api.post('/slots', backendData);
+        
+        // Clear slots cache when new slot is created
+        apiCache.clear();
+        
         return { success: true, data: response.data };
       } catch (error) {
         console.error('Error creating slot:', error);
@@ -97,21 +120,36 @@ export const apiService = {
     },
 
     getAll: async (filters = {}) => {
-      try {
-        const params = new URLSearchParams();
-        if (filters.date) params.append('date', filters.date);
-        if (filters.is_booked !== undefined) params.append('is_booked', filters.is_booked);
-        if (filters.user_id) params.append('user_id', filters.user_id);
+      const dedupeKey = `slots_getAll_${JSON.stringify(filters)}`;
+      return requestDeduplicator.deduplicate(dedupeKey, async () => {
+        try {
+          // Create cache key based on filters
+          const cacheKey = `slots_${JSON.stringify(filters)}`;
+          const cached = apiCache.get(cacheKey);
+          if (cached) {
+            return { success: true, data: cached };
+          }
 
-        const response = await api.get(`/slots?${params}`);
-        return { success: true, data: response.data };
-      } catch (error) {
-        console.error('Error fetching slots:', error);
-        return { 
-          success: false, 
-          error: error.response?.data?.detail || 'Failed to fetch slots' 
-        };
-      }
+          const params = new URLSearchParams();
+          if (filters.date) params.append('date', filters.date);
+          if (filters.is_booked !== undefined) params.append('is_booked', filters.is_booked);
+          if (filters.user_id) params.append('user_id', filters.user_id);
+
+          const response = await api.get(`/slots?${params}`);
+          const data = response.data;
+          
+          // Cache the result
+          apiCache.set(cacheKey, data);
+          
+          return { success: true, data };
+        } catch (error) {
+          console.error('Error fetching slots:', error);
+          return { 
+            success: false, 
+            error: error.response?.data?.detail || 'Failed to fetch slots' 
+          };
+        }
+      });
     },
 
     getById: async (slotId) => {
@@ -198,3 +236,4 @@ export const apiService = {
 };
 
 export default apiService;
+
