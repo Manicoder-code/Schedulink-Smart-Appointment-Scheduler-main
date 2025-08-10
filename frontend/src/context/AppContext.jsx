@@ -14,6 +14,33 @@ export const AppProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [userRole, setUserRole] = useState('guest'); // 'master' or 'guest'
   const [isNewUser, setIsNewUser] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  // Check if authentication is still valid (24 hours or extended if remembered)
+  const checkAuthValidity = () => {
+    const authTimestamp = localStorage.getItem('authTimestamp');
+    const isAuth = localStorage.getItem('isAuthenticated');
+    const rememberMe = localStorage.getItem('rememberMe');
+    
+    if (isAuth && authTimestamp) {
+      const timeDiff = Date.now() - parseInt(authTimestamp);
+      const sessionLimit = rememberMe === 'true' ? 
+        (30 * 24 * 60 * 60 * 1000) : // 30 days if remembered
+        (24 * 60 * 60 * 1000); // 24 hours otherwise
+      
+      if (timeDiff < sessionLimit) {
+        return true;
+      } else {
+        // Clear expired authentication
+        localStorage.removeItem('isAuthenticated');
+        localStorage.removeItem('authTimestamp');
+        localStorage.removeItem('rememberMe');
+        localStorage.setItem('userRole', 'guest');
+        return false;
+      }
+    }
+    return false;
+  };
 
   // Load theme from localStorage on mount
   useEffect(() => {
@@ -26,8 +53,14 @@ export const AppProvider = ({ children }) => {
       document.documentElement.classList.add('dark');
     }
     
-    if (savedRole) {
+    // Check authentication validity
+    const isValidAuth = checkAuthValidity();
+    setIsAuthenticated(isValidAuth);
+    
+    if (savedRole && isValidAuth) {
       setUserRole(savedRole);
+    } else if (!isValidAuth) {
+      setUserRole('guest');
     }
     
     if (visitedBefore) {
@@ -54,6 +87,20 @@ export const AppProvider = ({ children }) => {
     localStorage.setItem('userRole', role);
   };
 
+  const login = () => {
+    setIsAuthenticated(true);
+    setUserRole('master');
+  };
+
+  const logout = () => {
+    setIsAuthenticated(false);
+    setUserRole('guest');
+    localStorage.removeItem('isAuthenticated');
+    localStorage.removeItem('authTimestamp');
+    localStorage.removeItem('rememberMe');
+    localStorage.setItem('userRole', 'guest');
+  };
+
   const markAsVisited = () => {
     setIsNewUser(false);
     localStorage.setItem('visitedBefore', 'true');
@@ -65,7 +112,10 @@ export const AppProvider = ({ children }) => {
     userRole,
     setRole,
     isNewUser,
-    markAsVisited
+    markAsVisited,
+    isAuthenticated,
+    login,
+    logout
   };
 
   return (
