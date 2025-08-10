@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Shield } from 'lucide-react';
 import { AppProvider, useApp } from './context/AppContext';
 import Header from './components/Header';
 import UserForm from './components/UserForm';
@@ -6,14 +7,17 @@ import SlotForm from './components/SlotForm';
 import UsersList from './components/UsersList';
 import SlotsList from './components/SlotsList';
 import WelcomeModal from './components/WelcomeModal';
+import SessionWarning from './components/SessionWarning';
 import Footer from './components/Footer';
 
 function AppContent() {
   // Refresh triggers to update lists when new items are created
   const [userRefreshTrigger, setUserRefreshTrigger] = useState(0);
   const [slotRefreshTrigger, setSlotRefreshTrigger] = useState(0);
+  const [showSessionWarning, setShowSessionWarning] = useState(false);
+  const [sessionTimeRemaining, setSessionTimeRemaining] = useState(300); // 5 minutes
   
-  const { isNewUser, markAsVisited, userRole, setRole } = useApp();
+  const { isNewUser, markAsVisited, userRole, setRole, isAuthenticated, login, logout } = useApp();
   const [showWelcomeModal, setShowWelcomeModal] = useState(false);
 
   useEffect(() => {
@@ -21,6 +25,43 @@ function AppContent() {
       setShowWelcomeModal(true);
     }
   }, [isNewUser]);
+
+  // Session warning effect
+  useEffect(() => {
+    if (isAuthenticated && userRole === 'master') {
+      const authTimestamp = localStorage.getItem('authTimestamp');
+      const rememberMe = localStorage.getItem('rememberMe');
+      
+      if (authTimestamp) {
+        const sessionLimit = rememberMe === 'true' ? 
+          (30 * 24 * 60 * 60 * 1000) : // 30 days if remembered
+          (24 * 60 * 60 * 1000); // 24 hours otherwise
+        
+        const expiryTime = parseInt(authTimestamp) + sessionLimit;
+        const warningTime = expiryTime - (5 * 60 * 1000); // 5 minutes before expiry
+        
+        const checkSession = () => {
+          const now = Date.now();
+          if (now >= warningTime && now < expiryTime) {
+            const timeLeft = Math.floor((expiryTime - now) / 1000);
+            setSessionTimeRemaining(timeLeft);
+            setShowSessionWarning(true);
+          } else if (now >= expiryTime) {
+            logout();
+            setShowSessionWarning(false);
+          }
+        };
+
+        // Check immediately and then every 30 seconds
+        checkSession();
+        const interval = setInterval(checkSession, 30000);
+        
+        return () => clearInterval(interval);
+      }
+    } else {
+      setShowSessionWarning(false);
+    }
+  }, [isAuthenticated, userRole, logout]);
 
   const handleUserCreated = (newUser) => {
     console.log('New user created:', newUser);
@@ -38,8 +79,23 @@ function AppContent() {
   };
 
   const handleRoleSelect = (role) => {
+    if (role === 'master') {
+      // Master role selection will trigger login
+      login();
+    }
     setRole(role);
     markAsVisited();
+  };
+
+  const handleExtendSession = () => {
+    // Extend session by resetting timestamp
+    localStorage.setItem('authTimestamp', Date.now().toString());
+    setShowSessionWarning(false);
+  };
+
+  const handleSessionLogout = () => {
+    logout();
+    setShowSessionWarning(false);
   };
 
   return (
@@ -73,21 +129,48 @@ function AppContent() {
           </div>
         </div>
 
-        {/* Forms Section - Show UserForm only for master */}
-        <div className={`grid ${userRole === 'master' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'} gap-8 mb-12`}>
-          {userRole === 'master' && <UserForm onUserCreated={handleUserCreated} />}
+        {/* Authentication Required Message for Master Role */}
+        {userRole === 'master' && !isAuthenticated && (
+          <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-xl p-6 mb-8">
+            <div className="flex items-center">
+              <div className="w-10 h-10 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg flex items-center justify-center mr-4">
+                <Shield className="w-5 h-5 text-yellow-600 dark:text-yellow-400" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-yellow-800 dark:text-yellow-200 mb-1">
+                  Authentication Required
+                </h3>
+                <p className="text-yellow-700 dark:text-yellow-300">
+                  Please log in to access master features including user management and advanced controls.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Forms Section - Show UserForm only for authenticated master */}
+        <div className={`grid ${userRole === 'master' && isAuthenticated ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'} gap-8 mb-12`}>
+          {userRole === 'master' && isAuthenticated && <UserForm onUserCreated={handleUserCreated} />}
           <SlotForm onSlotCreated={handleSlotCreated} />
         </div>
 
         {/* Lists Section */}
         <div className="space-y-8">
-          {userRole === 'master' && <UsersList refreshTrigger={userRefreshTrigger} />}
+          {userRole === 'master' && isAuthenticated && <UsersList refreshTrigger={userRefreshTrigger} />}
           <SlotsList refreshTrigger={slotRefreshTrigger} />
         </div>
       </main>
       
       {/* Footer Component */}
       <Footer />
+      
+      {/* Session Warning */}
+      <SessionWarning
+        isVisible={showSessionWarning}
+        onExtend={handleExtendSession}
+        onLogout={handleSessionLogout}
+        timeRemaining={sessionTimeRemaining}
+      />
     </div>
   );
 }
@@ -101,5 +184,6 @@ function App() {
 }
 
 export default App;
+
 
 

@@ -1,16 +1,31 @@
 import React, { useState } from 'react';
 import { X, Calendar, Users, Clock, Shield } from 'lucide-react';
+import LoginModal from './LoginModal';
 
 const WelcomeModal = ({ isOpen, onClose, onRoleSelect }) => {
   const [selectedRole, setSelectedRole] = useState('');
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   if (!isOpen) return null;
 
   const handleContinue = () => {
-    if (selectedRole) {
+    if (selectedRole === 'guest') {
       onRoleSelect(selectedRole);
       onClose();
+    } else if (selectedRole === 'master') {
+      setShowLoginModal(true);
     }
+  };
+
+  const handleLoginSuccess = () => {
+    onRoleSelect('master');
+    setShowLoginModal(false);
+    onClose(); // This will close the welcome modal and go to main page
+  };
+
+  const handleLoginClose = () => {
+    setShowLoginModal(false);
+    setSelectedRole(''); // Reset selection when login is cancelled
   };
 
   return (
@@ -88,7 +103,7 @@ const WelcomeModal = ({ isOpen, onClose, onRoleSelect }) => {
                   <div>
                     <h4 className="font-medium text-gray-900 dark:text-white">Access as Master</h4>
                     <p className="text-sm text-gray-600 dark:text-gray-300">
-                      Full access to user management and API documentation
+                      Full access to user management and API documentation (requires login)
                     </p>
                   </div>
                 </div>
@@ -112,11 +127,18 @@ const WelcomeModal = ({ isOpen, onClose, onRoleSelect }) => {
                   : 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
               }`}
             >
-              Continue
+              {selectedRole === 'master' ? 'Login as Master' : 'Continue'}
             </button>
           </div>
         </div>
       </div>
+      
+      {/* Login Modal */}
+      <LoginModal 
+        isOpen={showLoginModal}
+        onClose={handleLoginClose}
+        onLoginSuccess={handleLoginSuccess}
+      />
     </div>
   );
 };
