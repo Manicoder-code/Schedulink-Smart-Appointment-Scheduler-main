@@ -1,7 +1,9 @@
-# appointment-booking-platform
+# [Schedulink-Smart-Appointment-Scheduler](https://schedulink.info/) - Appointment Booking Platform
 
 ## 📘 Overview
 Schedulink is a comprehensive full-stack web application designed to streamline the creation and management of appointment slots. The platform offers robust user management, flexible slot scheduling, and real-time appointment tracking, ensuring an efficient and seamless experience for both administrators and end-users.
+
+🌐 **Live Platform:** [https://schedulink.info/](https://schedulink.info/)
 
 **Technology Stack:**
 - **Frontend:** React with Tailwind CSS (powered by Vite)
@@ -161,3 +163,4 @@ Schedulink is deployable on:
 - Migrate from SQLite to PostgreSQL
 - Enable slot booking functionality
 - Integrate email notifications
+

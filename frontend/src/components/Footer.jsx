@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -50,14 +51,23 @@ export default function Footer() {
                   <span className="opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
                 </span>
               </a>
+              <Link
+                to="/case-study"
+                className="block text-blue-100 hover:text-white hover:translate-x-1 transition-all duration-200 group"
+              >
+                <span className="flex items-center gap-2">
+                  📋 Case Study - Detailed
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                </span>
+              </Link>
               <a
-                href="https://github.com/Manicoder-code/appointment-booking-platform/blob/main/README.md"
+                href="https://github.com/Manicoder-code/appointment-booking-platform"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-blue-100 hover:text-white hover:translate-x-1 transition-all duration-200 group"
               >
                 <span className="flex items-center gap-2">
-                  📋 Documentation (README)
+                  � GitHub Repository
                   <span className="opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
                 </span>
               </a>
@@ -130,7 +140,7 @@ export default function Footer() {
 
           {/* Contact & Info */}
           <div>
-            <h3 className="font-semibold mb-4 text-lg text-white">Get in Touch</h3>
+            <h3 className="font-semibold mb-4 text-lg text-white">Contact Us</h3>
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-blue-100">
                 <span className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
@@ -141,15 +151,17 @@ export default function Footer() {
                   <div>August 8th, 2025</div>
                 </div>
               </div>
-              <a
-                href="https://github.com/Manicoder-code/appointment-booking-platform"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 rounded-lg backdrop-blur-sm transition-all duration-200 hover:scale-105"
-              >
-                <span>🔗</span>
-                <span>GitHub Repository</span>
-              </a>
+              <div className="flex items-center gap-3 text-blue-100">
+                <span className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
+                  📧
+                </span>
+                <div>
+                  <div className="text-sm text-blue-200">Contact us</div>
+                  <a href="mailto:admin@schedulink.com" className="hover:text-white transition-colors">
+                    admin@schedulink.com
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
