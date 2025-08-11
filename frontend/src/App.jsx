@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Shield } from 'lucide-react';
 import { AppProvider, useApp } from './context/AppContext';
 import Header from './components/Header';
@@ -9,8 +10,9 @@ import SlotsList from './components/SlotsList';
 import WelcomeModal from './components/WelcomeModal';
 import SessionWarning from './components/SessionWarning';
 import Footer from './components/Footer';
+import CaseStudy from './pages/CaseStudy';
 
-function AppContent() {
+function MainApp() {
   // Refresh triggers to update lists when new items are created
   const [userRefreshTrigger, setUserRefreshTrigger] = useState(0);
   const [slotRefreshTrigger, setSlotRefreshTrigger] = useState(0);
@@ -175,15 +177,22 @@ function AppContent() {
   );
 }
 
-function App() {
+function AppContent() {
   return (
     <AppProvider>
-      <AppContent />
+      <Router>
+        <Routes>
+          <Route path="/" element={<MainApp />} />
+          <Route path="/case-study" element={<CaseStudy />} />
+        </Routes>
+      </Router>
     </AppProvider>
   );
 }
 
+function App() {
+  return <AppContent />;
+}
+
 export default App;
-
-
 

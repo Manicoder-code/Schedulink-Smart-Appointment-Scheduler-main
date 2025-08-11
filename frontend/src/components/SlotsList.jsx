@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, Clock, RefreshCw, User, CheckCircle, XCircle, BookOpen, UserCheck } from 'lucide-react';
+import { Calendar, Clock, RefreshCw, User, CheckCircle, XCircle, BookOpen, UserCheck, ChevronLeft, ChevronRight, ChevronUp, ChevronDown } from 'lucide-react';
 import apiService from '../services/api';
 
 const SlotsList = ({ refreshTrigger }) => {
@@ -9,6 +9,14 @@ const SlotsList = ({ refreshTrigger }) => {
   const [error, setError] = useState(null);
   const [bookingSlot, setBookingSlot] = useState(null);
   const [selectedUserId, setSelectedUserId] = useState('');
+
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(5);
+  
+  // Sorting state
+  const [sortField, setSortField] = useState('id');
+  const [sortDirection, setSortDirection] = useState('asc');
 
   const fetchSlots = async () => {
     try {
@@ -153,6 +161,63 @@ const SlotsList = ({ refreshTrigger }) => {
     return users.find(user => user.id === userId);
   };
 
+  // Sorting function
+  const handleSort = (field) => {
+    if (sortField === field) {
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortField(field);
+      setSortDirection('asc');
+    }
+  };
+
+  // Sort slots
+  const sortedSlots = [...slots].sort((a, b) => {
+    let aValue = a[sortField];
+    let bValue = b[sortField];
+    
+    // Handle different data types
+    if (sortField === 'date') {
+      aValue = new Date(aValue);
+      bValue = new Date(bValue);
+    } else if (typeof aValue === 'string') {
+      aValue = aValue.toLowerCase();
+      bValue = bValue.toLowerCase();
+    }
+    
+    if (sortDirection === 'asc') {
+      return aValue > bValue ? 1 : -1;
+    } else {
+      return aValue < bValue ? 1 : -1;
+    }
+  });
+
+  // Pagination calculations
+  const totalPages = Math.ceil(sortedSlots.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentSlots = sortedSlots.slice(startIndex, endIndex);
+
+  // Pagination handlers
+  const goToPage = (page) => {
+    setCurrentPage(Math.max(1, Math.min(page, totalPages)));
+  };
+
+  const handleItemsPerPageChange = (newItemsPerPage) => {
+    setItemsPerPage(newItemsPerPage);
+    setCurrentPage(1);
+  };
+
+  // Sort icon component
+  const SortIcon = ({ field }) => {
+    if (sortField !== field) {
+      return <ChevronUp className="w-4 h-4 text-gray-300" />;
+    }
+    return sortDirection === 'asc' ? 
+      <ChevronUp className="w-4 h-4 text-blue-500" /> : 
+      <ChevronDown className="w-4 h-4 text-blue-500" />;
+  };
+
   if (loading) {
     return (
       <div className="card">
@@ -184,7 +249,7 @@ const SlotsList = ({ refreshTrigger }) => {
           <Calendar className="w-6 h-6 text-primary-600 mr-2" />
           <h2 className="text-xl font-semibold text-gray-900">Appointment Slots</h2>
           <span className="ml-2 px-2 py-1 bg-primary-100 text-primary-800 text-sm rounded-full">
-            {slots.length}
+            {sortedSlots.length}
           </span>
         </div>
         <button
@@ -197,7 +262,7 @@ const SlotsList = ({ refreshTrigger }) => {
         </button>
       </div>
 
-      {slots.length === 0 ? (
+      {sortedSlots.length === 0 ? (
         <div className="text-center py-8">
           <Calendar className="w-12 h-12 text-gray-300 mx-auto mb-4" />
           <p className="text-gray-500 text-lg mb-2">No appointment slots found</p>
@@ -205,9 +270,30 @@ const SlotsList = ({ refreshTrigger }) => {
         </div>
       ) : (
         <div className="overflow-hidden">
+          {/* Items per page selector */}
+          <div className="flex justify-between items-center mb-4">
+            <div className="flex items-center gap-2 text-sm text-gray-600">
+              <span>Show:</span>
+              <select
+                value={itemsPerPage}
+                onChange={(e) => handleItemsPerPageChange(Number(e.target.value))}
+                className="border border-gray-300 rounded px-2 py-1 text-sm"
+              >
+                <option value={5}>5</option>
+                <option value={10}>10</option>
+                <option value={20}>20</option>
+                <option value={50}>50</option>
+              </select>
+              <span>entries</span>
+            </div>
+            <div className="text-sm text-gray-600">
+              Showing {startIndex + 1} to {Math.min(endIndex, sortedSlots.length)} of {sortedSlots.length} entries
+            </div>
+          </div>
+
           {/* Mobile view */}
           <div className="block lg:hidden space-y-4">
-            {slots.map((slot) => {
+            {currentSlots.map((slot) => {
               const slotStatus = getSlotStatus(slot);
               return (
                 <div key={slot.id} className="border border-gray-200 rounded-lg p-4">
@@ -256,17 +342,57 @@ const SlotsList = ({ refreshTrigger }) => {
             <table className="min-w-full table-auto border border-gray-200 dark:border-gray-700">
               <thead className="bg-gray-100 dark:bg-gray-800">
                 <tr>
-                  <th className="px-6 py-3 text-left table-header">ID</th>
-                  <th className="px-6 py-3 text-left table-header">Title</th>
-                  <th className="px-6 py-3 text-left table-header">Date</th>
-                  <th className="px-6 py-3 text-left table-header">Time</th>
+                  <th 
+                    className="px-6 py-3 text-left table-header cursor-pointer hover:bg-gray-50 select-none"
+                    onClick={() => handleSort('id')}
+                  >
+                    <div className="flex items-center gap-1">
+                      ID
+                      <SortIcon field="id" />
+                    </div>
+                  </th>
+                  <th 
+                    className="px-6 py-3 text-left table-header cursor-pointer hover:bg-gray-50 select-none"
+                    onClick={() => handleSort('title')}
+                  >
+                    <div className="flex items-center gap-1">
+                      Title
+                      <SortIcon field="title" />
+                    </div>
+                  </th>
+                  <th 
+                    className="px-6 py-3 text-left table-header cursor-pointer hover:bg-gray-50 select-none"
+                    onClick={() => handleSort('date')}
+                  >
+                    <div className="flex items-center gap-1">
+                      Date
+                      <SortIcon field="date" />
+                    </div>
+                  </th>
+                  <th 
+                    className="px-6 py-3 text-left table-header cursor-pointer hover:bg-gray-50 select-none"
+                    onClick={() => handleSort('start_time')}
+                  >
+                    <div className="flex items-center gap-1">
+                      Time
+                      <SortIcon field="start_time" />
+                    </div>
+                  </th>
                   <th className="px-6 py-3 text-left table-header">User</th>
-                  <th className="px-6 py-3 text-left table-header">Booking Status</th>
+                  <th 
+                    className="px-6 py-3 text-left table-header cursor-pointer hover:bg-gray-50 select-none"
+                    onClick={() => handleSort('is_booked')}
+                  >
+                    <div className="flex items-center gap-1">
+                      Booking Status
+                      <SortIcon field="is_booked" />
+                    </div>
+                  </th>
                   <th className="px-6 py-3 text-left table-header">Actions</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {slots.map((slot) => {
+                {currentSlots.map((slot) => {
                   const slotStatus = getSlotStatus(slot);
                   const assignedUser = getUserById(slot.user_id);
                   const bookedByUser = getUserById(slot.booked_by_user_id);
@@ -399,6 +525,59 @@ const SlotsList = ({ refreshTrigger }) => {
               </div>
             </div>
           </div>
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-200">
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => goToPage(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className="flex items-center gap-1 px-3 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                  Previous
+                </button>
+                <button
+                  onClick={() => goToPage(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  className="flex items-center gap-1 px-3 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Next
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+              
+              <div className="flex items-center gap-1">
+                {[...Array(Math.min(5, totalPages))].map((_, index) => {
+                  let pageNumber;
+                  if (totalPages <= 5) {
+                    pageNumber = index + 1;
+                  } else if (currentPage <= 3) {
+                    pageNumber = index + 1;
+                  } else if (currentPage >= totalPages - 2) {
+                    pageNumber = totalPages - 4 + index;
+                  } else {
+                    pageNumber = currentPage - 2 + index;
+                  }
+                  
+                  return (
+                    <button
+                      key={pageNumber}
+                      onClick={() => goToPage(pageNumber)}
+                      className={`px-3 py-2 text-sm rounded-lg ${
+                        currentPage === pageNumber
+                          ? 'bg-primary-600 text-white'
+                          : 'border border-gray-300 hover:bg-gray-50'
+                      }`}
+                    >
+                      {pageNumber}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>
