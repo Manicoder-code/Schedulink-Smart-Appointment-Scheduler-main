@@ -66,8 +66,8 @@ Schedulink_Project/
    docker compose up --build
    ```
 3. **Access the application:**
-   - Frontend: http://<host-ip>:3000
-   - Backend & API Docs (Swagger): http://<host-ip>:8000/docs
+   - Frontend: `http://<host-ip>:3000`
+   - Backend & API Docs (Swagger): `http://<host-ip>:8000/docs`
 
 ## 📌 API Endpoints (FastAPI)
 | Method | Endpoint   | Description           |
