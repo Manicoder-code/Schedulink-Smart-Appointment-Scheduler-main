@@ -1,4 +1,4 @@
-# appointment-booking-platform
+# appointment-booking-platform - https://schedulink.info/
 
 ## 📘 Overview
 Schedulink is a comprehensive full-stack web application designed to streamline the creation and management of appointment slots. The platform offers robust user management, flexible slot scheduling, and real-time appointment tracking, ensuring an efficient and seamless experience for both administrators and end-users.
