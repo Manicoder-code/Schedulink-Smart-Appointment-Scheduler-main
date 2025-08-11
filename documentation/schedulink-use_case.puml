@@ -1,0 +1,62 @@
+@startuml
+left to right direction
+skinparam backgroundColor #FFFFFF
+
+' Actor colors
+skinparam actor {
+  BackgroundColor<<User>> #E2F0CB
+  BorderColor<<User>> #2E8B57
+  FontColor<<User>> #2E8B57
+
+  BackgroundColor<<Business>> #B5D8F1
+  BorderColor<<Business>> #1E90FF
+  FontColor<<Business>> #1E90FF
+
+  BackgroundColor<<Admin>> #FFD8B5
+  BorderColor<<Admin>> #FF8C00
+  FontColor<<Admin>> #FF8C00
+}
+
+' Use Case colors
+skinparam usecase {
+  BackgroundColor<<Booking>> #FFFACD
+  BorderColor<<Booking>> #B8860B
+  FontColor<<Booking>> #B8860B
+
+  BackgroundColor<<Management>> #F8D7DA
+  BorderColor<<Management>> #C82333
+  FontColor<<Management>> #C82333
+
+  BackgroundColor<<AdminUC>> #D1C4E9
+  BorderColor<<AdminUC>> #512DA8
+  FontColor<<AdminUC>> #512DA8
+}
+
+actor User as "User (Customer)" <<User>>
+actor Business as "Business Owner" <<Business>>
+actor Admin as "Admin" <<Admin>>
+
+rectangle "Schedulink Appointment System" {
+  (Book Appointment) <<Booking>>
+  (Reschedule Appointment) <<Booking>>
+  (Cancel Appointment) <<Booking>>
+  (View Daily Schedule) <<Management>>
+  (Set Available Appointment Slots) <<Management>>
+  (Create New User Account) <<AdminUC>>
+  (Deactivate User Account) <<AdminUC>>
+
+  User -- (Book Appointment)
+  User -- (Reschedule Appointment)
+  User -- (Cancel Appointment)
+
+  Business -- (Set Available Appointment Slots)
+  Business -- (View Daily Schedule)
+
+  Admin -- (Create New User Account)
+  Admin -- (Deactivate User Account)
+
+  Business -- (Book Appointment) : <<receive notification>>
+  Business -- (Reschedule Appointment) : <<receive notification>>
+  Business -- (Cancel Appointment) : <<receive notification>>
+}
+@enduml

@@ -1,0 +1,36 @@
+@startuml
+skinparam backgroundColor #FAFAFA
+skinparam object {
+    BackgroundColor #FFFACD
+    BorderColor #DEB887
+    FontColor #8B4513
+}
+
+object User #FFFACD
+object Business #B0E0FF
+object Admin #FADADD
+object "Schedulink System" as SchedulinkSystem #D3E4CD
+object Database #FDEBD0
+object NotificationService #E0FFFF
+object Appointment #C1E1C1
+object AppointmentSlot #F0E68C
+object Notification #FADADD
+
+User  --  SchedulinkSystem : 1. Login/Book/Reschedule/Cancel
+SchedulinkSystem -- Database : 2. Query/Update Data
+SchedulinkSystem -- NotificationService : 3. Send Notification
+NotificationService -- User : 4. Notify User
+NotificationService -- Business : 5. Notify Business
+
+Business -- SchedulinkSystem : 6. Set Slots/View Schedule
+SchedulinkSystem -- Appointment : creates/updates
+SchedulinkSystem -- AppointmentSlot : manages
+Appointment -- AppointmentSlot : uses
+
+Admin -- SchedulinkSystem : 7. Create/Deactivate User
+SchedulinkSystem -- User : manages
+SchedulinkSystem -- Business : manages
+
+SchedulinkSystem -- Notification : generates
+
+@enduml
