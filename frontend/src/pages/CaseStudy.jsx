@@ -837,7 +837,7 @@ const CaseStudy = () => {
                         <span className="text-xs font-mono">🔀</span>
                       </div>
                       <div className="text-left">
-                        <div className="font-medium text-gray-900">Schedulink Operation Contracts</div>
+                        <div className="font-medium text-gray-900">Schedulink - Operation Contracts</div>
                         <div className="text-sm text-gray-600">All PlantUML Files are checked in</div>
                       </div>
                     </div>
