@@ -826,10 +826,10 @@ const CaseStudy = () => {
                   )}
                 </div>
 
-                {/* schedulink_state_transistion.puml */}
+                {/* Schedulink Operation Contracts */}
                 <div className="border rounded-lg">
                   <button
-                    onClick={() => toggleDoc('stateTransition')}
+                    onClick={() => toggleDoc('operationContracts')}
                     className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
                   >
                     <div className="flex items-center gap-3">
@@ -837,38 +837,183 @@ const CaseStudy = () => {
                         <span className="text-xs font-mono">🔀</span>
                       </div>
                       <div className="text-left">
-                        <div className="font-medium text-gray-900">schedulink_state_transistion.puml</div>
+                        <div className="font-medium text-gray-900">Schedulink Operation Contracts</div>
                         <div className="text-sm text-gray-600">All PlantUML Files are checked in</div>
                       </div>
                     </div>
-                    {expandedDocs.stateTransition ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+                    {expandedDocs.operationContracts ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
                   </button>
-                  {expandedDocs.stateTransition && (
+                  {expandedDocs.operationContracts && (
                     <div className="p-6 border-t bg-white">
-                      <h5 className="font-semibold text-gray-900 mb-4">State Transition Diagram</h5>
-                      <p className="text-gray-600 mb-4">Depicts the various states of appointment slots and transitions between them throughout their lifecycle.</p>
-                      <div className="space-y-4">
-                        <div className="bg-gray-50 p-4 rounded">
-                          <h6 className="font-semibold mb-2">Slot States:</h6>
-                          <ul className="text-sm space-y-2">
-                            <li><span className="font-medium text-blue-600">CREATED:</span> Initial state when slot is created</li>
-                            <li><span className="font-medium text-green-600">AVAILABLE:</span> Slot is published and available for booking</li>
-                            <li><span className="font-medium text-yellow-600">BOOKED:</span> Slot has been reserved by a customer</li>
-                            <li><span className="font-medium text-red-600">CANCELLED:</span> Booking has been cancelled</li>
-                            <li><span className="font-medium text-gray-600">COMPLETED:</span> Appointment has been completed</li>
-                            <li><span className="font-medium text-purple-600">EXPIRED:</span> Slot time has passed without booking</li>
-                          </ul>
+                      <h5 className="font-semibold text-gray-900 mb-4">Operation Contracts</h5>
+                      <div className="space-y-8">
+                        {/* UC1: Book Appointment */}
+                        <div>
+                          <h6 className="font-semibold mb-2">UC1: Book Appointment</h6>
+                          <table className="min-w-full text-sm mb-2">
+                            <tbody className="bg-white divide-y divide-gray-200">
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Operation</td>
+                                <td className="py-2">bookAppointment()</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Cross References</td>
+                                <td className="py-2">Use Case: Book Appointment<br/>Sequence Diagram: Book Appointment</td>
+                              </tr>
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2">Preconditions</td>
+                                <td className="py-2">User is authenticated<br/>Selected slot is available</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Postconditions</td>
+                                <td className="py-2">- Appointment instance a is created (instance creation)<br/>- a is associated with the user and slot (association formed)<br/>- Slot status is set to 'booked' (attribute modification)<br/>- User and business are notified (notification sent)</td>
+                              </tr>
+                            </tbody>
+                          </table>
                         </div>
-                        <div className="bg-gray-50 p-4 rounded">
-                          <h6 className="font-semibold mb-2">State Transitions:</h6>
-                          <ul className="text-sm space-y-1">
-                            <li>• CREATED → AVAILABLE (when published)</li>
-                            <li>• AVAILABLE → BOOKED (when customer books)</li>
-                            <li>• BOOKED → CANCELLED (when booking cancelled)</li>
-                            <li>• CANCELLED → AVAILABLE (if slot can be rebooked)</li>
-                            <li>• BOOKED → COMPLETED (after appointment)</li>
-                            <li>• AVAILABLE → EXPIRED (when time passes)</li>
-                          </ul>
+                        {/* UC2: Reschedule Appointment */}
+                        <div>
+                          <h6 className="font-semibold mb-2">UC2: Reschedule Appointment</h6>
+                          <table className="min-w-full text-sm mb-2">
+                            <tbody className="bg-white divide-y divide-gray-200">
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Operation</td>
+                                <td className="py-2">rescheduleAppointment()</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Cross References</td>
+                                <td className="py-2">Use Case: Reschedule Appointment<br/>Sequence Diagram: Reschedule Appointment</td>
+                              </tr>
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2">Preconditions</td>
+                                <td className="py-2">User is authenticated<br/>User has an existing appointment<br/>New slot is available</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Postconditions</td>
+                                <td className="py-2">- Appointment instance a is updated with new slot/time (attribute modification)<br/>- Slot associations are updated (association update)<br/>- Notifications are sent to affected parties (notification sent)</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        {/* UC3: Cancel Appointment */}
+                        <div>
+                          <h6 className="font-semibold mb-2">UC3: Cancel Appointment</h6>
+                          <table className="min-w-full text-sm mb-2">
+                            <tbody className="bg-white divide-y divide-gray-200">
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Operation</td>
+                                <td className="py-2">cancelAppointment()</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Cross References</td>
+                                <td className="py-2">Use Case: Cancel Appointment<br/>Sequence Diagram: Cancel Appointment</td>
+                              </tr>
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2">Preconditions</td>
+                                <td className="py-2">User is authenticated<br/>User has an existing appointment</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Postconditions</td>
+                                <td className="py-2">- Appointment instance a is marked as cancelled (attribute modification)<br/>- Associated slot is released (attribute modification)<br/>- Notifications sent to user and business (notification sent)</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        {/* UC4: Set Available Appointment Slots */}
+                        <div>
+                          <h6 className="font-semibold mb-2">UC4: Set Available Appointment Slots</h6>
+                          <table className="min-w-full text-sm mb-2">
+                            <tbody className="bg-white divide-y divide-gray-200">
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Operation</td>
+                                <td className="py-2">setAvailableSlots()</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Cross References</td>
+                                <td className="py-2">Use Case: Set Available Appointment Slots<br/>Sequence Diagram: Set Slots</td>
+                              </tr>
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2">Preconditions</td>
+                                <td className="py-2">Business user is authenticated</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Postconditions</td>
+                                <td className="py-2">- New slot instances are created (instance creation)<br/>- Slots are associated with business (association formed)<br/>- Slots become available for booking (attribute modification)</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        {/* UC5: View Daily Schedule */}
+                        <div>
+                          <h6 className="font-semibold mb-2">UC5: View Daily Schedule</h6>
+                          <table className="min-w-full text-sm mb-2">
+                            <tbody className="bg-white divide-y divide-gray-200">
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Operation</td>
+                                <td className="py-2">viewDailySchedule()</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Cross References</td>
+                                <td className="py-2">Use Case: View Daily Schedule<br/>Sequence Diagram: View Schedule</td>
+                              </tr>
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2">Preconditions</td>
+                                <td className="py-2">Business user is authenticated</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Postconditions</td>
+                                <td className="py-2">- Schedule data is retrieved (data retrieval)<br/>- Schedule is displayed to the business user (output shown)</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        {/* UC6: Create New User Account */}
+                        <div>
+                          <h6 className="font-semibold mb-2">UC6: Create New User Account</h6>
+                          <table className="min-w-full text-sm mb-2">
+                            <tbody className="bg-white divide-y divide-gray-200">
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Operation</td>
+                                <td className="py-2">createUserAccount()</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Cross References</td>
+                                <td className="py-2">Use Case: Create New User Account<br/>Sequence Diagram: Create User</td>
+                              </tr>
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2">Preconditions</td>
+                                <td className="py-2">Admin is authenticated<br/>User/email does not already exist</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Postconditions</td>
+                                <td className="py-2">- User account instance u is created (instance creation)<br/>- Credentials are sent to the user (notification sent)</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        {/* UC7: Deactivate User Account */}
+                        <div>
+                          <h6 className="font-semibold mb-2">UC7: Deactivate User Account</h6>
+                          <table className="min-w-full text-sm mb-2">
+                            <tbody className="bg-white divide-y divide-gray-200">
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Operation</td>
+                                <td className="py-2">deactivateUserAccount()</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Cross References</td>
+                                <td className="py-2">Use Case: Deactivate User Account<br/>Sequence Diagram: Deactivate User</td>
+                              </tr>
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2">Preconditions</td>
+                                <td className="py-2">Admin is authenticated<br/>User account exists and is active</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Postconditions</td>
+                                <td className="py-2">- User account is marked as inactive (attribute modification)<br/>- User access is revoked (effect enforcement)</td>
+                              </tr>
+                            </tbody>
+                          </table>
                         </div>
                       </div>
                     </div>
