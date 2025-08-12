@@ -806,7 +806,7 @@ const CaseStudy = () => {
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 bg-purple-100 rounded flex items-center justify-center">
-                        <span className="text-xs font-mono">🔁</span>
+                        <span className="text-xs font-mono">📋</span>
                       </div>
                       <div className="text-left">
                         <div className="font-medium text-gray-900">Schedulink - Sequence Diagram</div>
@@ -1019,183 +1019,62 @@ const CaseStudy = () => {
                     </div>
                   )}
                 </div>
-
-                {/* schedulink-use_case.puml */}
+                {/* Schedulink - Class Diagram */}
                 <div className="border rounded-lg">
                   <button
-                    onClick={() => toggleDoc('useCaseDiagram')}
+                    onClick={() => toggleDoc('classDiagram')}
                     className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-teal-100 rounded flex items-center justify-center">
-                        <span className="text-xs font-mono">🎯</span>
+                      <div className="w-8 h-8 bg-purple-100 rounded flex items-center justify-center">
+                        <span className="text-xs font-mono">🧬</span>
                       </div>
                       <div className="text-left">
-                        <div className="font-medium text-gray-900">schedulink-use_case.puml</div>
-                        <div className="text-sm text-gray-600">All PlantUML Files are checked in</div>
+                        <div className="font-medium text-gray-900">Schedulink - Class Diagram</div>
+                        <div className="text-sm text-gray-600">Class diagram for Schedulink</div>
                       </div>
                     </div>
-                    {expandedDocs.useCaseDiagram ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+                    {expandedDocs.classDiagram ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
                   </button>
-                  {expandedDocs.useCaseDiagram && (
-                    <div className="p-6 border-t bg-white">
-                      <h5 className="font-semibold text-gray-900 mb-4">Use Case Diagram</h5>
-                      <p className="text-gray-600 mb-4">Illustrates the functional requirements and interactions between different types of users and the Schedulink system.</p>
-                      <div className="space-y-4">
-                        <div className="bg-gray-50 p-4 rounded">
-                          <h6 className="font-semibold mb-2">Actors:</h6>
-                          <ul className="text-sm space-y-1">
-                            <li><strong>Guest User:</strong> Unauthenticated user browsing the system</li>
-                            <li><strong>Customer:</strong> Registered user who can book appointments</li>
-                            <li><strong>Service Provider:</strong> User who creates and manages slots</li>
-                            <li><strong>Admin:</strong> System administrator with full access</li>
-                          </ul>
-                        </div>
-                        <div className="bg-gray-50 p-4 rounded">
-                          <h6 className="font-semibold mb-2">Use Cases for Customers:</h6>
-                          <ul className="text-sm space-y-1">
-                            <li>• Register account</li>
-                            <li>• Login to system</li>
-                            <li>• View available slots</li>
-                            <li>• Book appointment slot</li>
-                            <li>• Cancel booking</li>
-                            <li>• View booking history</li>
-                            <li>• Update profile</li>
-                          </ul>
-                        </div>
-                        <div className="bg-gray-50 p-4 rounded">
-                          <h6 className="font-semibold mb-2">Use Cases for Service Providers:</h6>
-                          <ul className="text-sm space-y-1">
-                            <li>• Create appointment slots</li>
-                            <li>• Manage slot availability</li>
-                            <li>• View booking requests</li>
-                            <li>• Confirm/reject bookings</li>
-                            <li>• Update slot details</li>
-                            <li>• Generate reports</li>
-                          </ul>
-                        </div>
-                      </div>
+                  {expandedDocs.classDiagram && (
+                    <div className="p-6 border-t bg-white flex flex-col items-center">
+                      <img
+                        src="/images/class_diagram.png"
+                        alt="Schedulink Class Diagram"
+                        className="max-w-full h-auto rounded shadow"
+                      />
                     </div>
                   )}
                 </div>
 
-                {/* schedulink-system_sequence.puml */}
+                {/* Schedulink - Activity Diagram */}
                 <div className="border rounded-lg">
                   <button
-                    onClick={() => toggleDoc('systemSequence')}
+                    onClick={() => toggleDoc('activityDiagram')}
                     className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-indigo-100 rounded flex items-center justify-center">
-                        <span className="text-xs font-mono">📞</span>
+                      <div className="w-8 h-8 bg-purple-100 rounded flex items-center justify-center">
+                        <span className="text-xs font-mono">🗃️</span>
                       </div>
                       <div className="text-left">
-                        <div className="font-medium text-gray-900">schedulink-system_sequence.puml</div>
-                        <div className="text-sm text-gray-600">All PlantUML Files are checked in</div>
+                        <div className="font-medium text-gray-900">Schedulink - Activity Diagram</div>
+                        <div className="text-sm text-gray-600">Activity diagram for Schedulink</div>
                       </div>
                     </div>
-                    {expandedDocs.systemSequence ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+                    {expandedDocs.activityDiagram ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
                   </button>
-                  {expandedDocs.systemSequence && (
-                    <div className="p-6 border-t bg-white">
-                      <h5 className="font-semibold text-gray-900 mb-4">System Sequence Diagram</h5>
-                      <p className="text-gray-600 mb-4">Shows the sequence of interactions between different system components over time during key operations.</p>
-                      <div className="space-y-4">
-                        <div className="bg-gray-50 p-4 rounded">
-                          <h6 className="font-semibold mb-2">Booking Sequence:</h6>
-                          <ol className="text-sm space-y-1 list-decimal list-inside">
-                            <li>Customer → Frontend: Request available slots</li>
-                            <li>Frontend → Backend API: GET /slots</li>
-                            <li>Backend API → Database: Query available slots</li>
-                            <li>Database → Backend API: Return slot data</li>
-                            <li>Backend API → Frontend: JSON response with slots</li>
-                            <li>Frontend → Customer: Display available slots</li>
-                            <li>Customer → Frontend: Select and book slot</li>
-                            <li>Frontend → Backend API: POST /slots/{`{id}`}/book</li>
-                            <li>Backend API → Database: Update slot status</li>
-                            <li>Database → Backend API: Confirm update</li>
-                            <li>Backend API → Frontend: Booking confirmation</li>
-                            <li>Frontend → Customer: Show success message</li>
-                          </ol>
-                        </div>
-                        <div className="bg-gray-50 p-4 rounded">
-                          <h6 className="font-semibold mb-2">User Registration Sequence:</h6>
-                          <ol className="text-sm space-y-1 list-decimal list-inside">
-                            <li>User → Frontend: Fill registration form</li>
-                            <li>Frontend → Backend API: POST /users</li>
-                            <li>Backend API: Validate user data</li>
-                            <li>Backend API → Database: Create user record</li>
-                            <li>Database → Backend API: Return user ID</li>
-                            <li>Backend API → Frontend: Registration success</li>
-                            <li>Frontend → User: Welcome message</li>
-                          </ol>
-                        </div>
-                      </div>
+                  {expandedDocs.activityDiagram && (
+                    <div className="p-6 border-t bg-white flex flex-col items-center">
+                      <img
+                        src="/images/activity_diagram.png"
+                        alt="Schedulink Activity Diagram"
+                        className="max-w-full h-auto rounded shadow"
+                      />
                     </div>
                   )}
                 </div>
-
-                {/* schedulink-colloboration.puml */}
-                <div className="border rounded-lg">
-                  <button
-                    onClick={() => toggleDoc('collaborationDiagram')}
-                    className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-pink-100 rounded flex items-center justify-center">
-                        <span className="text-xs font-mono">🤝</span>
-                      </div>
-                      <div className="text-left">
-                        <div className="font-medium text-gray-900">schedulink-colloboration.puml</div>
-                        <div className="text-sm text-gray-600">All PlantUML Files are checked in</div>
-                      </div>
-                    </div>
-                    {expandedDocs.collaborationDiagram ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
-                  </button>
-                  {expandedDocs.collaborationDiagram && (
-                    <div className="p-6 border-t bg-white">
-                      <h5 className="font-semibold text-gray-900 mb-4">Collaboration Diagram</h5>
-                      <p className="text-gray-600 mb-4">Demonstrates how different objects collaborate to achieve specific functionality in the Schedulink system.</p>
-                      <div className="space-y-4">
-                        <div className="bg-gray-50 p-4 rounded">
-                          <h6 className="font-semibold mb-2">Component Collaboration:</h6>
-                          <ul className="text-sm space-y-1">
-                            <li><strong>Frontend Components:</strong> React components, forms, lists</li>
-                            <li><strong>API Service Layer:</strong> Axios-based HTTP client</li>
-                            <li><strong>Backend Controllers:</strong> FastAPI route handlers</li>
-                            <li><strong>Business Logic:</strong> Service classes and validators</li>
-                            <li><strong>Data Access:</strong> SQLAlchemy ORM and models</li>
-                            <li><strong>Database:</strong> SQLite storage engine</li>
-                          </ul>
-                        </div>
-                        <div className="bg-gray-50 p-4 rounded">
-                          <h6 className="font-semibold mb-2">Collaboration Patterns:</h6>
-                          <ul className="text-sm space-y-1">
-                            <li>• <strong>MVC Pattern:</strong> Model-View-Controller separation</li>
-                            <li>• <strong>Repository Pattern:</strong> Data access abstraction</li>
-                            <li>• <strong>Service Layer:</strong> Business logic encapsulation</li>
-                            <li>• <strong>Observer Pattern:</strong> Real-time UI updates</li>
-                            <li>• <strong>Factory Pattern:</strong> Object creation management</li>
-                          </ul>
-                        </div>
-                        <div className="bg-gray-50 p-4 rounded">
-                          <h6 className="font-semibold mb-2">Message Flow:</h6>
-                          <ul className="text-sm space-y-1">
-                            <li>• User interactions trigger component events</li>
-                            <li>• Components call API service methods</li>
-                            <li>• API service sends HTTP requests to backend</li>
-                            <li>• Backend processes requests through controllers</li>
-                            <li>• Controllers delegate to business services</li>
-                            <li>• Services interact with data repositories</li>
-                            <li>• Repositories perform database operations</li>
-                            <li>• Responses flow back through the same chain</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
+               
                 {/* API_INTEGRATION.md */}
                 <div className="border rounded-lg">
                   <button
@@ -2354,6 +2233,217 @@ const CaseStudy = () => {
                     </div>
                   )}
               </div>
+              {/* Schedulink CRC Cards*/}
+                <div className="border rounded-lg">
+                  <button
+                    onClick={() => toggleDoc('crcCards')}
+                    className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-orange-100 rounded flex items-center justify-center">
+                        <span className="text-xs font-mono">🧑‍💻</span>
+                      </div>
+                      <div className="text-left">
+                        <div className="font-medium text-gray-900">Schedulink Class-Responsibility-Collaborator (CRC) Cards</div>
+                        <div className="text-sm text-gray-600">CRC Cards are used to identify the responsibilities of classes in the system.</div>
+                      </div>
+                    </div>
+                    {expandedDocs.crcCards ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+                  </button>
+                  {expandedDocs.crcCards && (
+                    <div className="p-6 border-t bg-white">
+                      <div className="space-y-8">
+                        {/* User */}
+                        <div>
+                          <h6 className="font-semibold mb-2">User</h6>
+                          <table className="min-w-full text-sm mb-2">
+                            <tbody className="bg-white divide-y divide-gray-200">
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
+                                <td className="py-2">Register and manage personal info<br/>Book, reschedule, and cancel appointments<br/>View appointments and notifications</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
+                                <td className="py-2">Account, Appointment, AppointmentSlot, Notification</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        {/* Business */}
+                        <div>
+                          <h6 className="font-semibold mb-2">Business</h6>
+                          <table className="min-w-full text-sm mb-2">
+                            <tbody className="bg-white divide-y divide-gray-200">
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
+                                <td className="py-2">Manage business profile and availability<br/>Set/update available slots<br/>View and manage appointments</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
+                                <td className="py-2">AppointmentSlot, Schedule, Appointment</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        {/* Admin */}
+                        <div>
+                          <h6 className="font-semibold mb-2">Admin</h6>
+                          <table className="min-w-full text-sm mb-2">
+                            <tbody className="bg-white divide-y divide-gray-200">
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
+                                <td className="py-2">Create/deactivate user & business accounts<br/>Oversee system operations</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
+                                <td className="py-2">User, Account, Business</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        {/* Appointment */}
+                        <div>
+                          <h6 className="font-semibold mb-2">Appointment</h6>
+                          <table className="min-w-full text-sm mb-2">
+                            <tbody className="bg-white divide-y divide-gray-200">
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
+                                <td className="py-2">Store appointment details and status<br/>Link user, slot, and business<br/>Notify parties of changes</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
+                                <td className="py-2">User, Business, AppointmentSlot, Notification</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        {/* AppointmentSlot */}
+                        <div>
+                          <h6 className="font-semibold mb-2">AppointmentSlot</h6>
+                          <table className="min-w-full text-sm mb-2">
+                            <tbody className="bg-white divide-y divide-gray-200">
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
+                                <td className="py-2">Represent available or booked time slots<br/>Update slot status</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
+                                <td className="py-2">Business, Appointment</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        {/* Schedule */}
+                        <div>
+                          <h6 className="font-semibold mb-2">Schedule</h6>
+                          <table className="min-w-full text-sm mb-2">
+                            <tbody className="bg-white divide-y divide-gray-200">
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
+                                <td className="py-2">Aggregate appointments for a period<br/>Provide schedule view/reporting</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
+                                <td className="py-2">Appointment, Business</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        {/* Account */}
+                        <div>
+                          <h6 className="font-semibold mb-2">Account</h6>
+                          <table className="min-w-full text-sm mb-2">
+                            <tbody className="bg-white divide-y divide-gray-200">
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
+                                <td className="py-2">Store authentication and profile info<br/>Manage account status</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
+                                <td className="py-2">User, Admin, AuthenticationService</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        {/* Notification */}
+                        <div>
+                          <h6 className="font-semibold mb-2">Notification</h6>
+                          <table className="min-w-full text-sm mb-2">
+                            <tbody className="bg-white divide-y divide-gray-200">
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
+                                <td className="py-2">Store notification data<br/>Deliver notifications to users</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
+                                <td className="py-2">User, Appointment, NotificationService</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        {/* NotificationService */}
+                        <div>
+                          <h6 className="font-semibold mb-2">NotificationService</h6>
+                          <table className="min-w-full text-sm mb-2">
+                            <tbody className="bg-white divide-y divide-gray-200">
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
+                                <td className="py-2">Send notifications (email, SMS, etc.)</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
+                                <td className="py-2">Notification, User, Appointment</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        {/* AuthenticationService */}
+                        <div>
+                          <h6 className="font-semibold mb-2">AuthenticationService</h6>
+                          <table className="min-w-full text-sm mb-2">
+                            <tbody className="bg-white divide-y divide-gray-200">
+                              <tr className="bg-gray-50">
+                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
+                                <td className="py-2">Authenticate users, manage sessions</td>
+                              </tr>
+                              <tr>
+                                <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
+                                <td className="py-2">Account, User</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                {/* Schedulink - State Transition Diagram */}
+                <div className="border rounded-lg">
+                  <button
+                    onClick={() => toggleDoc('stateTransitionDiagram')}
+                    className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-purple-100 rounded flex items-center justify-center">
+                        <span className="text-xs font-mono">🛠️</span>
+                      </div>
+                      <div className="text-left">
+                        <div className="font-medium text-gray-900">Schedulink - State Transition Diagram</div>
+                        <div className="text-sm text-gray-600">State transition diagram for Schedulink</div>
+                      </div>
+                    </div>
+                    {expandedDocs.stateTransitionDiagram ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+                  </button>
+                  {expandedDocs.stateTransitionDiagram && (
+                    <div className="p-6 border-t bg-white flex flex-col items-center">
+                      <img
+                        src="/images/state_transition_diagram.png"
+                        alt="Schedulink State Transition Diagram"
+                        className="max-w-full h-auto rounded shadow"
+                      />
+                    </div>
+                  )}
+                </div>
             </div>
             
           </div>
