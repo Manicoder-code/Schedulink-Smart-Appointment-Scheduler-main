@@ -79,7 +79,7 @@ const CaseStudy = () => {
       <div className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 text-white">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 via-pink-400 to-blue-400"></div>
-        
+
         <div className="relative container mx-auto px-6 py-20">
           <button
             onClick={() => navigate('/')}
@@ -88,13 +88,13 @@ const CaseStudy = () => {
             <ArrowLeft className="w-4 h-4" />
             Back to Home
           </button>
-          
+
           <div className="max-w-4xl">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
               Schedulink Case Study
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
-              A comprehensive examination of our modern appointment booking platform, 
+              A comprehensive examination of our modern appointment booking platform,
               showcasing innovative solutions and cutting-edge technology stack.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -135,14 +135,14 @@ const CaseStudy = () => {
             <div>
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Challenge</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Modern businesses need efficient appointment scheduling systems that can handle 
-                complex booking scenarios while providing an intuitive user experience. Traditional 
+                Modern businesses need efficient appointment scheduling systems that can handle
+                complex booking scenarios while providing an intuitive user experience. Traditional
                 solutions often lack flexibility and modern UI/UX standards.
               </p>
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Solution</h3>
               <p className="text-gray-600 leading-relaxed">
-                Schedulink addresses these challenges with a modern, containerized appointment 
-                booking platform that combines React's dynamic frontend capabilities with FastAPI's 
+                Schedulink addresses these challenges with a modern, containerized appointment
+                booking platform that combines React's dynamic frontend capabilities with FastAPI's
                 high-performance backend, all wrapped in a Docker-ready deployment package.
               </p>
             </div>
@@ -213,13 +213,13 @@ const CaseStudy = () => {
         {/* Architecture Diagram */}
         <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">System Architecture</h2>
-          
+
           {/* Architecture Image */}
           <div className="mb-8 flex justify-center">
             <div className="max-w-4xl w-full">
-              <img 
-                src="/images/image.png" 
-                alt="Schedulink System Architecture Diagram" 
+              <img
+                src="/images/image.png"
+                alt="Schedulink System Architecture Diagram"
                 className="w-full h-auto rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300"
               />
               <p className="text-center text-sm text-gray-500 mt-4 italic">
@@ -232,7 +232,7 @@ const CaseStudy = () => {
         {/* Project Structure Section */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Project Architecture & Documentation</h2>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             <div className="bg-white rounded-xl shadow-lg p-8">
               <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center gap-2">
@@ -1126,7 +1126,7 @@ const CaseStudy = () => {
                                 <div>  email: "john@example.com",</div>
                                 <div>  phone: "+1234567890"</div>
                                 <div>{`}`});</div>
-                                <div><br/># Backend (curl)</div>
+                                <div><br /># Backend (curl)</div>
                                 <div>curl -X POST "http://localhost:8000/users" \</div>
                                 <div>  -H "Content-Type: application/json" \</div>
                                 <div>  -d '{`{`}"name":"John Doe","email":"john@example.com"{`}`}'</div>
@@ -1161,7 +1161,7 @@ const CaseStudy = () => {
                             <div className="bg-gray-100 p-3 rounded font-mono text-xs mt-3">
                               <div># Run backend tests</div>
                               <div>cd backend && python -m pytest</div>
-                              <div><br/># Run frontend tests</div>
+                              <div><br /># Run frontend tests</div>
                               <div>cd frontend && npm test</div>
                             </div>
                           </div>
@@ -1174,9 +1174,9 @@ const CaseStudy = () => {
                               <div># 1. Clone and setup</div>
                               <div>git clone &lt;repository-url&gt;</div>
                               <div>cd appointment-booking-platform</div>
-                              <div><br/># 2. Start with Docker Compose</div>
+                              <div><br /># 2. Start with Docker Compose</div>
                               <div>docker compose up --build</div>
-                              <div><br/># 3. Access applications</div>
+                              <div><br /># 3. Access applications</div>
                               <div># Frontend: http://localhost:3000</div>
                               <div># Backend: http://localhost:8000</div>
                               <div># API Docs: http://localhost:8000/docs</div>
@@ -1260,9 +1260,9 @@ const CaseStudy = () => {
                               <div className="bg-gray-100 p-3 rounded font-mono text-xs">
                                 <div># Connect to your instance</div>
                                 <div>ssh -i "your-key.pem" ubuntu@your-instance-ip</div>
-                                <div><br/># Update system packages</div>
+                                <div><br /># Update system packages</div>
                                 <div>sudo apt update && sudo apt upgrade -y</div>
-                                <div><br/># Install required packages</div>
+                                <div><br /># Install required packages</div>
                                 <div>sudo apt install -y git curl wget</div>
                               </div>
                             </div>
@@ -1306,7 +1306,7 @@ const CaseStudy = () => {
                                 <div>sudo sh get-docker.sh</div>
                                 <div>sudo usermod -aG docker ubuntu</div>
                                 <div>newgrp docker</div>
-                                <div><br/># Install Docker Compose</div>
+                                <div><br /># Install Docker Compose</div>
                                 <div>sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose</div>
                                 <div>sudo chmod +x /usr/local/bin/docker-compose</div>
                               </div>
@@ -1337,11 +1337,11 @@ const CaseStudy = () => {
                                 <div># Clone the repository</div>
                                 <div>git clone &lt;your-repository-url&gt;</div>
                                 <div>cd appointment-booking-platform</div>
-                                <div><br/># Build and start the application</div>
+                                <div><br /># Build and start the application</div>
                                 <div>docker-compose -f docker-compose.prod.yml up -d --build</div>
-                                <div><br/># Check if containers are running</div>
+                                <div><br /># Check if containers are running</div>
                                 <div>docker ps</div>
-                                <div><br/># View logs</div>
+                                <div><br /># View logs</div>
                                 <div>docker-compose -f docker-compose.prod.yml logs -f</div>
                               </div>
                             </div>
@@ -1351,7 +1351,7 @@ const CaseStudy = () => {
                                 <div># Test the application</div>
                                 <div>curl http://your-instance-ip:3000</div>
                                 <div>curl http://your-instance-ip:8000/docs</div>
-                                <div><br/># Check container health</div>
+                                <div><br /># Check container health</div>
                                 <div>docker-compose -f docker-compose.prod.yml ps</div>
                               </div>
                             </div>
@@ -1366,9 +1366,9 @@ const CaseStudy = () => {
                               <div className="bg-gray-100 p-3 rounded font-mono text-xs">
                                 <div># Install Certbot</div>
                                 <div>sudo apt install certbot python3-certbot-nginx</div>
-                                <div><br/># Obtain SSL certificate</div>
+                                <div><br /># Obtain SSL certificate</div>
                                 <div>sudo certbot --nginx -d your-domain.com</div>
-                                <div><br/># Setup auto-renewal</div>
+                                <div><br /># Setup auto-renewal</div>
                                 <div>sudo crontab -e</div>
                                 <div># Add: 0 12 * * * /usr/bin/certbot renew --quiet</div>
                               </div>
@@ -1378,10 +1378,10 @@ const CaseStudy = () => {
                               <div className="bg-gray-100 p-3 rounded font-mono text-xs">
                                 <div># Install Nginx</div>
                                 <div>sudo apt install nginx</div>
-                                <div><br/># Configure reverse proxy</div>
+                                <div><br /># Configure reverse proxy</div>
                                 <div>sudo nano /etc/nginx/sites-available/schedulink</div>
                                 <div># Copy nginx-prod.conf configuration</div>
-                                <div><br/># Enable site</div>
+                                <div><br /># Enable site</div>
                                 <div>sudo ln -s /etc/nginx/sites-available/schedulink /etc/nginx/sites-enabled/</div>
                                 <div>sudo nginx -t && sudo systemctl restart nginx</div>
                               </div>
@@ -1397,11 +1397,11 @@ const CaseStudy = () => {
                               <div className="bg-gray-100 p-3 rounded font-mono text-xs">
                                 <div># Check application status</div>
                                 <div>docker-compose -f docker-compose.prod.yml ps</div>
-                                <div><br/># Monitor resource usage</div>
+                                <div><br /># Monitor resource usage</div>
                                 <div>docker stats</div>
-                                <div><br/># Check disk space</div>
+                                <div><br /># Check disk space</div>
                                 <div>df -h</div>
-                                <div><br/># Monitor system resources</div>
+                                <div><br /># Monitor system resources</div>
                                 <div>htop</div>
                               </div>
                             </div>
@@ -1410,7 +1410,7 @@ const CaseStudy = () => {
                               <div className="bg-gray-100 p-3 rounded font-mono text-xs">
                                 <div># View application logs</div>
                                 <div>docker-compose -f docker-compose.prod.yml logs -f --tail=100</div>
-                                <div><br/># Rotate logs to prevent disk full</div>
+                                <div><br /># Rotate logs to prevent disk full</div>
                                 <div>sudo nano /etc/logrotate.d/docker-containers</div>
                               </div>
                             </div>
@@ -1453,14 +1453,14 @@ const CaseStudy = () => {
                                 <div className="bg-gray-100 p-2 rounded font-mono text-xs">
                                   <div># Restart containers</div>
                                   <div>docker-compose -f docker-compose.prod.yml restart</div>
-                                  <div><br/># Rebuild if needed</div>
+                                  <div><br /># Rebuild if needed</div>
                                   <div>docker-compose -f docker-compose.prod.yml up -d --build</div>
                                 </div>
                                 <div><strong>SSL Certificate Issues:</strong></div>
                                 <div className="bg-gray-100 p-2 rounded font-mono text-xs">
                                   <div># Check certificate status</div>
                                   <div>sudo certbot certificates</div>
-                                  <div><br/># Renew certificates</div>
+                                  <div><br /># Renew certificates</div>
                                   <div>sudo certbot renew --dry-run</div>
                                 </div>
                               </div>
@@ -1531,7 +1531,7 @@ const CaseStudy = () => {
                           <div className="bg-gradient-to-r from-green-50 to-green-100 border-l-4 border-green-400 rounded-xl p-5 shadow-md">
                             <h5 className="text-lg font-semibold text-green-800 flex items-center gap-2 mb-2"><Database className="inline w-5 h-5 text-green-400" />2. Time Slot Management</h5>
                             <div className="text-gray-700 mb-1"><span className="font-bold">Requirement:</span> Businesses or service providers can set up, modify, and delete available time slots for appointments. Slots can be recurring or one-time.</div>
-                            <div className="text-gray-500 italic"><span className="font-bold">Example:</span> Dental Clinic “BrightSmiles” sets up appointment slots for Tuesday:<br/>• 09:00, 09:30, 10:00, 10:30, ... until 17:00<br/>If the 10:00 AM slot is booked, it is no longer available for other users.</div>
+                            <div className="text-gray-500 italic"><span className="font-bold">Example:</span> Dental Clinic “BrightSmiles” sets up appointment slots for Tuesday:<br />• 09:00, 09:30, 10:00, 10:30, ... until 17:00<br />If the 10:00 AM slot is booked, it is no longer available for other users.</div>
                           </div>
                           <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 border-l-4 border-yellow-400 rounded-xl p-5 shadow-md">
                             <h5 className="text-lg font-semibold text-yellow-800 flex items-center gap-2 mb-2"><CheckCircle className="inline w-5 h-5 text-yellow-400" />3. Appointment Booking</h5>
@@ -1578,6 +1578,55 @@ const CaseStudy = () => {
                           </div>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+              {/* Actors in Schedulink (Collapsible) */}
+              <div className="h-4 md:h-12" />
+              <div className="border rounded-lg">
+                <button
+                  onClick={() => toggleDoc('actorsInSchedulink')}
+                  className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-blue-100 rounded flex items-center justify-center">
+                      <Users className="w-6 h-6 text-blue-500" />
+                    </div>
+                    <div className="text-left">
+                      <div className="font-medium text-gray-900">Actors in Schedulink</div>
+                      <div className="text-sm text-gray-600">Primary, secondary, and offstage actors in the platform</div>
+                    </div>
+                  </div>
+                  {expandedDocs.actorsInSchedulink ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+                </button>
+                {expandedDocs.actorsInSchedulink && (
+                  <div className="p-6 border-t bg-white">
+                    <div className="prose max-w-none">
+                      {/* Primary Actors */}
+                      <h4 className="text-lg font-semibold text-blue-700 mb-2 flex items-center gap-2"><Users className="w-5 h-5 text-blue-400" />Primary Actors</h4>
+                      <p className="text-gray-600 mb-2">These are the main users who interact directly with the system to achieve their goals.</p>
+                      <ul className="ml-6 list-disc text-gray-700 mb-4">
+                        <li><span className="font-bold">User (Customer):</span> Books, reschedules, cancels, and views appointments. Receives notifications and manages their profile.</li>
+                        <li><span className="font-bold">Business / Service Provider:</span> Sets available time slots. Views and manages appointments. Interacts with their dashboard for daily operations.</li>
+                        <li><span className="font-bold">Admin:</span> Creates, edits, and deactivates user accounts. Manages businesses, appointments, and slots. Accesses system-wide analytics and controls.</li>
+                      </ul>
+                      {/* Secondary Actors */}
+                      <h4 className="text-lg font-semibold text-green-700 mb-2 flex items-center gap-2"><Cloud className="w-5 h-5 text-green-400" />Secondary Actors</h4>
+                      <p className="text-gray-600 mb-2">These actors support the system or interact indirectly, often triggered by the actions of primary actors.</p>
+                      <ul className="ml-6 list-disc text-gray-700 mb-4">
+                        <li><span className="font-bold">Notification Service:</span> Sends emails/SMS for confirmations, reminders, and updates.</li>
+                        <li><span className="font-bold">Database System:</span> Stores and retrieves appointments, users, slots, and logs.</li>
+                        <li><span className="font-bold">Authentication Service:</span> Validates user credentials during login.</li>
+                      </ul>
+                      {/* Offstage Actors */}
+                      <h4 className="text-lg font-semibold text-purple-700 mb-2 flex items-center gap-2"><Shield className="w-5 h-5 text-purple-400" />Offstage Actors</h4>
+                      <p className="text-gray-600 mb-2">These are external entities or systems that influence or are influenced by the system but do not interact regularly.</p>
+                      <ul className="ml-6 list-disc text-gray-700">
+                        <li><span className="font-bold">System Administrator (IT/Support):</span> Maintains the platform, monitors logs, handles backups and disaster recovery. Performs maintenance and troubleshooting.</li>
+                        <li><span className="font-bold">Regulatory Authorities:</span> Ensure system compliance with data protection laws (e.g., GDPR).</li>
+                        <li><span className="font-bold">Third-Party Integrations (Optional):</span> External calendar services (Google Calendar, Outlook) if/when integrated. May sync appointments for users/businesses.</li>
+                      </ul>
                     </div>
                   </div>
                 )}
