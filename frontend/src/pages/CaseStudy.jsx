@@ -218,7 +218,7 @@ const CaseStudy = () => {
           <div className="mb-8 flex justify-center">
             <div className="max-w-4xl w-full">
               <img
-                src="/images/image.png"
+                src="/images/system_architecture_diagram.png"
                 alt="Schedulink System Architecture Diagram"
                 className="w-full h-auto rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300"
               />
@@ -771,10 +771,10 @@ const CaseStudy = () => {
                   )}
                 </div>
 
-                {/* schedulink_activity.puml */}
+                {/* Schedulink - Use Case Diagram */}
                 <div className="border rounded-lg">
                   <button
-                    onClick={() => toggleDoc('activityDiagram')}
+                    onClick={() => toggleDoc('useCaseDiagram')}
                     className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
                   >
                     <div className="flex items-center gap-3">
@@ -782,13 +782,13 @@ const CaseStudy = () => {
                         <span className="text-xs font-mono">🔄</span>
                       </div>
                       <div className="text-left">
-                        <div className="font-medium text-gray-900">schedulink_activity.puml</div>
+                        <div className="font-medium text-gray-900">Schedulink - Use Case Diagram</div>
                         <div className="text-sm text-gray-600">All PlantUML Files are checked in</div>
                       </div>
                     </div>
-                    {expandedDocs.activityDiagram ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+                    {expandedDocs.useCaseDiagram ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
                   </button>
-                  {expandedDocs.activityDiagram && (
+                  {expandedDocs.useCaseDiagram && (
                     <div className="p-6 border-t bg-white">
                       <h5 className="font-semibold text-gray-900 mb-4">Activity Diagram</h5>
                       <p className="text-gray-600 mb-4">Shows the workflow of activities and actions in the appointment booking process from start to finish.</p>
