@@ -1,0 +1,56 @@
+# Schedulink Appointment System – State Transition Diagram (Coloured)
+
+Below is a PlantUML code block for a **coloured state transition diagram** representing the lifecycle of an appointment in the Schedulink system.  
+Copy and paste this into [PlantUML](https://plantuml.com/state-diagram) or any compatible tool for visualization.
+
+---
+
+```plantuml
+@startuml
+skinparam backgroundColor #FFFFFF
+skinparam state {
+  StartColor #90EE90
+  EndColor #FFB6C1
+  BackgroundColor<<Booked>> #ADD8E6
+  BackgroundColor<<Rescheduled>> #FFFACD
+  BackgroundColor<<Cancelled>> #FFDAB9
+  BackgroundColor<<Completed>> #C1FFC1
+  BorderColor Black
+  FontSize 15
+}
+
+[*] --> Available : slot created
+
+state "Booked" as Booked <<Booked>> #ADD8E6
+state "Rescheduled" as Rescheduled <<Rescheduled>> #FFFACD
+state "Cancelled" as Cancelled <<Cancelled>> #FFDAB9
+state "Completed" as Completed <<Completed>> #C1FFC1
+
+Available --> Booked : appointment booked
+Booked --> Rescheduled : reschedule request
+Booked --> Cancelled : cancel request
+Rescheduled --> Booked : new slot confirmed
+Rescheduled --> Cancelled : cancel after reschedule
+Booked --> Completed : appointment fulfilled
+Rescheduled --> Completed : appointment fulfilled
+
+Cancelled --> [*]
+Completed --> [*]
+Available --> [*] : slot deleted
+
+note right of Booked : User or Business can cancel or reschedule
+note right of Rescheduled : Returns to Booked after confirmation
+note right of Cancelled : Cannot be reverted
+note right of Completed : Final state
+
+@enduml
+```
+
+---
+
+**How to use:**  
+- Each state is visually distinct with its own background color.
+- The diagram represents all major transitions for an appointment slot lifecycle.
+- Notes and end states are included for clarity.
+
+---

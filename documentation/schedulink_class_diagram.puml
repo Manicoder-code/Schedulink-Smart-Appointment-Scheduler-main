@@ -1,0 +1,165 @@
+# Schedulink Appointment System – UML Class Diagram (Coloured Boxes, Evenly Distributed)
+
+Below is a PlantUML code snippet for a **coloured and well-distributed class diagram**.  
+**Each class box is filled with a distinct color** for clarity.  
+Paste this code into [PlantUML](https://plantuml.com/class-diagram) or a compatible tool to render the diagram.
+
+---
+
+```plantuml
+@startuml
+skinparam classAttributeIconSize 0
+skinparam classFontColor Black
+skinparam classFontSize 15
+
+' ABSTRACT & INTERFACE COLORS
+skinparam class {
+    BackgroundColor<<abstract>> #E3E3E3
+    BackgroundColor<<interface>> #CCE5FF
+}
+
+' USER/ACCOUNT/SECURITY COLORS
+class User <<UserColor>> #ADD8E6
+class Account <<AccountColor>> #BFEFFF
+class AuthenticationService <<AuthColor>> #BFEFFF
+
+' BUSINESS/ADMIN COLORS
+class Business <<BusinessColor>> #90EE90
+class Admin <<AdminColor>> #98FB98
+
+' SCHEDULING CORE COLORS
+class Appointment <<AppointmentColor>> #FFFACD
+class AppointmentSlot <<SlotColor>> #FFFFE0
+class Schedule <<ScheduleColor>> #FFE4B5
+
+' NOTIFICATION COLORS
+class Notification <<NotifColor>> #FFDAB9
+class NotificationService <<NotifSvcColor>> #FFF0E0
+
+' ABSTRACT/INTERFACE
+abstract class Person <<abstract>> {
+    - name: String
+    - email: String
+    - phone: String
+    + getName(): String
+    + getEmail(): String
+}
+interface Notifiable <<interface>> {
+    + sendNotification(message: String): void
+}
+
+' USER/ACCOUNT/SECURITY
+User : - account: Account
+User : + bookAppointment(slot: AppointmentSlot): Appointment
+User : + rescheduleAppointment(appt: Appointment, slot: AppointmentSlot): void
+User : + cancelAppointment(appt: Appointment): void
+User : + viewAppointments(): List<Appointment>
+
+Account : - username: String
+Account : - passwordHash: String
+Account : - status: String
+Account : + authenticate(password: String): Boolean
+Account : + deactivate(): void
+Account : + resetPassword(newPassword: String): void
+
+AuthenticationService : + login(account: Account, password: String): Boolean
+AuthenticationService : + logout(account: Account): void
+AuthenticationService : + isAuthenticated(account: Account): Boolean
+
+' BUSINESS/ADMIN
+Business : - businessName: String
+Business : - address: String
+Business : - schedule: Schedule
+Business : + setAvailableSlot(slot: AppointmentSlot): void
+Business : + viewDailySchedule(date: Date): Schedule
+Business : + manageAppointments(): List<Appointment>
+
+Admin : + createUserAccount(user: User): void
+Admin : + deactivateUserAccount(user: User): void
+
+' SCHEDULING CORE
+Appointment : - appointmentId: String
+Appointment : - status: String
+Appointment : - time: DateTime
+Appointment : + getDetails(): String
+Appointment : + updateStatus(status: String): void
+
+AppointmentSlot : - slotId: String
+AppointmentSlot : - startTime: DateTime
+AppointmentSlot : - endTime: DateTime
+AppointmentSlot : - isAvailable: Boolean
+AppointmentSlot : + reserve(): void
+AppointmentSlot : + release(): void
+
+Schedule : - date: Date
+Schedule : - appointments: List<Appointment>
+Schedule : + getAppointments(): List<Appointment>
+
+' NOTIFICATION
+Notification : - notificationId: String
+Notification : - message: String
+Notification : - sentAt: DateTime
+Notification : - status: String
+Notification : + sendNotification(message: String): void
+Notification : + markAsRead(): void
+
+NotificationService : + send(notification: Notification, recipient: Notifiable): void
+
+' CLASS INHERITANCE & IMPLEMENTATION
+User --|> Person
+Business --|> Person
+Admin --|> Person
+Notification ..|> Notifiable
+
+' RELATIONSHIPS & MULTIPLICITIES
+User "1" o-- "1" Account
+User "1" o-- "*" Appointment : books >
+Business "1" o-- "*" AppointmentSlot : sets >
+Business "1" o-- "1" Schedule : manages >
+Business "1" o-- "*" Appointment : provides >
+Admin "1" o-- "*" User : manages >
+Account "1" o-- "1" User
+Appointment "1" o-- "1" AppointmentSlot : uses >
+Appointment "1" o-- "1" User : for >
+Appointment "1" o-- "1" Business : with >
+AppointmentSlot "*" o-- "1" Schedule : in >
+Schedule "1" o-- "*" Appointment : contains >
+Notification "*" o-- "1" User : to >
+NotificationService "1" ..> "*" Notification : sends >
+NotificationService "1" ..> "*" User : delivers to >
+AuthenticationService "1" ..> "*" Account : authenticates >
+
+' CONSTRAINTS & NOTES
+note right of Account
+passwordHash must be securely stored.
+status: 'active', 'deactivated'
+end note
+
+note left of AppointmentSlot
+A slot can be booked by at most one appointment at a time.
+end note
+
+note top of Appointment
+status: 'booked', 'rescheduled', 'cancelled'
+end note
+
+note right of Notification
+Notification can be delivered via email or SMS.
+end note
+
+note left of Person
+Person is abstract and not instantiated directly.
+end note
+
+@enduml
+```
+
+---
+
+**How to use:**  
+- Copy and paste into [PlantUML Live Editor](https://plantuml.com/class-diagram) or any PlantUML-compatible tool.
+- Each class box will have a unique background color for clarity and group distinction.
+- Abstract classes and interfaces are also colored.
+- Relationships, multiplicities, constraints, and notes are included for full context.
+
+---

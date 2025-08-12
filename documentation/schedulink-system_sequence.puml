@@ -1,0 +1,87 @@
+@startuml
+' General coloring and style
+skinparam backgroundColor #FAFAFA
+skinparam sequence {
+    ArrowColor #4682B4
+    ActorBorderColor #DEB887
+    ActorBackgroundColor #FFFACD
+    ActorFontColor #8B4513
+    LifeLineBorderColor #A9A9A9
+    LifeLineBackgroundColor #E0FFFF
+    ParticipantBorderColor #4682B4
+    ParticipantBackgroundColor #D3E4CD
+    ParticipantFontColor #2F4F4F
+    BoxBackgroundColor #F0E68C
+    BoxBorderColor #BDB76B
+    SequenceBoxBorderColor #DEB887
+    SequenceBoxBackgroundColor #FFFACD
+}
+
+' Actors
+actor User #FFFACD
+actor Business #B0E0FF
+actor Admin #FADADD
+
+' System boundary
+participant Schedulink_System as "Schedulink System" #D3E4CD
+participant Database as "Database" #FADADD
+participant NotificationService as "Notification Service" #E0FFFF
+
+' == Book Appointment ==
+User -> Schedulink_System : Login
+Schedulink_System -> Database : Validate credentials
+Database --> Schedulink_System : Credentials OK
+User -> Schedulink_System : Browse available slots
+Schedulink_System -> Database : Retrieve available slots
+Database --> Schedulink_System : Slots data
+User -> Schedulink_System : Book slot (date/time)
+Schedulink_System -> Database : Create appointment
+Database --> Schedulink_System : Appointment created
+Schedulink_System -> NotificationService : Send booking confirmation
+NotificationService --> User : Confirmation notification
+
+' == Reschedule Appointment ==
+User -> Schedulink_System : Reschedule request
+Schedulink_System -> Database : Update appointment time
+Database --> Schedulink_System : Appointment updated
+Schedulink_System -> NotificationService : Send reschedule notification
+NotificationService --> User : Reschedule notification
+
+' == Cancel Appointment ==
+User -> Schedulink_System : Cancel appointment
+Schedulink_System -> Database : Update appointment status (canceled)
+Database --> Schedulink_System : Appointment canceled
+Schedulink_System -> NotificationService : Send cancellation notification
+NotificationService --> User : Cancellation notification
+NotificationService --> Business : Cancellation notification
+
+' == Set Available Appointment Slots ==
+Business -> Schedulink_System : Login
+Schedulink_System -> Database : Validate credentials
+Database --> Schedulink_System : Credentials OK
+Business -> Schedulink_System : Set available slots
+Schedulink_System -> Database : Store slot availability
+Database --> Schedulink_System : Slots saved
+
+' == View Daily Schedule ==
+Business -> Schedulink_System : View today’s schedule
+Schedulink_System -> Database : Retrieve today’s appointments
+Database --> Schedulink_System : Appointments data
+Schedulink_System --> Business : Show schedule
+
+' == Create New User Account ==
+Admin -> Schedulink_System : Login
+Schedulink_System -> Database : Validate credentials
+Database --> Schedulink_System : Credentials OK
+Admin -> Schedulink_System : Create new user
+Schedulink_System -> Database : Store new user data
+Database --> Schedulink_System : User created
+Schedulink_System -> NotificationService : Send credentials to user
+NotificationService --> User : Credentials notification
+
+' == Deactivate User Account ==
+Admin -> Schedulink_System : Deactivate user
+Schedulink_System -> Database : Update user status (inactive)
+Database --> Schedulink_System : User deactivated
+
+@enduml

@@ -1,0 +1,43 @@
+@startuml
+' Set background and swimlane colors for clarity
+skinparam backgroundColor #FFFFFF
+skinparam activity {
+  StartColor #90EE90
+  EndColor #FFB6C1
+  BarColor #A5A5A5
+  DiamondBackgroundColor #FFFACD
+  BackgroundColor #ADD8E6
+  BorderColor Black
+  FontSize 15
+}
+
+start
+
+:Login/Register;
+note right
+User logs in or registers
+end note
+
+:View Available Slots;
+note right
+User browses for appointment slots.
+end note
+
+:Select Slot;
+:Enter Appointment Details;
+
+partition "System" {
+    :Check Slot Availability;
+    if (Slot Available?) then (yes)
+      :Book Appointment;
+      :Send Confirmation Notification;
+      :Update Schedule;
+      :Show Success to User;
+    else (no)
+      :Show Error (Slot Unavailable);
+    endif
+}
+
+:Logout;
+
+end

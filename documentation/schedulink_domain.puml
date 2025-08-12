@@ -1,0 +1,82 @@
+@startuml
+skinparam class {
+    BackgroundColor White
+    BorderColor Black
+    ArrowColor Black
+    FontColor Black
+}
+
+' User and Admin (light yellow)
+class User #FFFACD {
+  +userId: String
+  +name: String
+  +email: String
+  +role: String
+  +status: String
+  +contactInfo: String
+}
+
+class Admin #FFFACD {
+  ' Inherits User attributes
+}
+
+' Business/Service Provider (light blue)
+class Business #B0E0FF {
+  +businessId: String
+  +name: String
+  +address: String
+  +contactInfo: String
+}
+
+' Appointment/Slot (light green)
+class Appointment #C1E1C1 {
+  +appointmentId: String
+  +time: DateTime
+  +status: String
+}
+
+class AppointmentSlot #C1E1C1 {
+  +slotId: String
+  +startTime: DateTime
+  +endTime: DateTime
+  +status: String
+}
+
+' Notification/Services (light pink)
+class Notification #FADADD {
+  +notificationId: String
+  +type: String
+  +recipientId: String
+  +content: String
+  +sentAt: DateTime
+}
+
+class AuthenticationService #FADADD {
+  +validateCredentials()
+}
+
+class Database #FADADD {
+  +store()
+  +retrieve()
+}
+
+' Relationships
+User "1" -- "0..*" Appointment : books >
+User "1" -- "0..*" Notification : receives >
+User <|-- Admin
+Business "1" -- "0..*" AppointmentSlot : offers >
+Business "1" -- "0..*" Appointment : hosts >
+Appointment "1" -- "1" AppointmentSlot : uses >
+Appointment "1" -- "1" User : for >
+Appointment "1" -- "1" Business : at >
+Appointment "1" -- "0..*" Notification : triggers >
+Admin "1" -- "0..*" User : manages >
+Admin "1" -- "0..*" Business : manages >
+
+' Supporting services
+User ..> AuthenticationService : authenticates >
+User ..> Database : data access >
+Business ..> Database : data access >
+Admin ..> Database : data access >
+Appointment ..> Notification : notifies >
+@enduml
