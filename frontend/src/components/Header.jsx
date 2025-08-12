@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Calendar, Users, Clock, ExternalLink, Moon, Sun, LogOut, Shield, Lock } from 'lucide-react';
 import { useApp } from '../context/AppContext';
+import { useNavigate } from 'react-router-dom';
 import LoginModal from './LoginModal';
 
 const Header = () => {
   const { isDarkMode, toggleDarkMode, userRole, isAuthenticated, logout } = useApp();
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const navigate = useNavigate();
   
   const handleLogout = () => {
     logout();
@@ -117,5 +119,4 @@ const Header = () => {
 };
 
 export default Header;
-
 
