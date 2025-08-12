@@ -589,47 +589,181 @@ const CaseStudy = () => {
                   )}
                 </div>
 
-                {/* schedulink_domain.puml */}
+                {/* Schedulink - Casual Problem Statement – Use Cases */}
                 <div className="border rounded-lg">
                   <button
-                    onClick={() => toggleDoc('domainModel')}
-                    className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                    onClick={() => toggleDoc('schedulinkUseCases')}
+                    className="w-full flex items-center justify-between p-3 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-green-100 rounded flex items-center justify-center">
-                        <span className="text-xs font-mono">🏗️</span>
+                      <div className="w-8 h-8 bg-blue-100 rounded flex items-center justify-center">
+                        <span className="text-xs font-mono">📝</span>
                       </div>
                       <div className="text-left">
-                        <div className="font-medium text-gray-900">schedulink_domain.puml</div>
-                        <div className="text-sm text-gray-600">All PlantUML Files are checked in</div>
+                        <div className="font-medium text-gray-900">Schedulink – Use Case Scenarios</div>
+                        <div className="text-sm text-gray-600">Real-world flows for users, businesses, and admins</div>
                       </div>
                     </div>
-                    {expandedDocs.domainModel ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+                    {expandedDocs.schedulinkUseCases ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
                   </button>
-                  {expandedDocs.domainModel && (
+                  {expandedDocs.schedulinkUseCases && (
                     <div className="p-6 border-t bg-white">
-                      <h5 className="font-semibold text-gray-900 mb-4">Domain Model</h5>
-                      <p className="text-gray-600 mb-4">Represents the core business entities and their relationships in the appointment booking domain. This model focuses on the business logic and rules.</p>
-                      <div className="space-y-4">
-                        <div className="bg-gray-50 p-4 rounded">
-                          <h6 className="font-semibold mb-2">Domain Entities:</h6>
-                          <ul className="text-sm space-y-1">
-                            <li><strong>Person:</strong> Base entity for all users in the system</li>
-                            <li><strong>ServiceProvider:</strong> Users who create appointment slots</li>
-                            <li><strong>Customer:</strong> Users who book appointments</li>
-                            <li><strong>AppointmentSlot:</strong> Available time slots for booking</li>
-                            <li><strong>Booking:</strong> Confirmed appointments</li>
-                            <li><strong>Schedule:</strong> Collection of slots for a provider</li>
+                      <h5 className="font-semibold text-gray-900 mb-4"></h5>
+                      <div className="space-y-6">
+                        {/* Use Case 1 */}
+                        <div className="bg-blue-50 p-4 rounded-xl shadow">
+                          <h6 className="font-semibold mb-1">Use Case 1: Book an Appointment</h6>
+                          <div className="text-sm text-gray-700 mb-1"><b>Actor:</b> User (Sarah)</div>
+                          <div className="text-sm text-gray-700 mb-1"><b>Description:</b> Sarah wants to book a dental checkup at BrightSmiles clinic.</div>
+                          <ul className="ml-6 space-y-2">
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-blue-500 text-white rounded-full shadow text-xs">✓</span>
+                              <span>Sarah logs into Schedulink.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-blue-500 text-white rounded-full shadow text-xs">✓</span>
+                              <span>She browses available slots for BrightSmiles.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-blue-500 text-white rounded-full shadow text-xs">✓</span>
+                              <span>She picks Tuesday at 11:30 AM and books it.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-blue-500 text-white rounded-full shadow text-xs">✓</span>
+                              <span>She gets a confirmation notification.</span>
+                            </li>
                           </ul>
                         </div>
-                        <div className="bg-gray-50 p-4 rounded">
-                          <h6 className="font-semibold mb-2">Business Rules:</h6>
-                          <ul className="text-sm space-y-1">
-                            <li>• Each slot can only be booked by one customer</li>
-                            <li>• Service providers can create multiple slots</li>
-                            <li>• Customers can book multiple slots</li>
-                            <li>• Slots have specific time boundaries</li>
-                            <li>• Bookings can be cancelled within constraints</li>
+                        {/* Use Case 2 */}
+                        <div className="bg-blue-50 p-4 rounded-xl shadow">
+                          <h6 className="font-semibold mb-1">Use Case 2: Reschedule Appointment</h6>
+                          <div className="text-sm text-gray-700 mb-1"><b>Actor:</b> User (Sarah)</div>
+                          <div className="text-sm text-gray-700 mb-1"><b>Description:</b> Sarah needs to reschedule her dental appointment because a conflict came up.</div>
+                          <ul className="ml-6 space-y-2">
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-purple-500 text-white rounded-full shadow text-xs">↻</span>
+                              <span>Sarah logs in and goes to her appointments.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-purple-500 text-white rounded-full shadow text-xs">↻</span>
+                              <span>She chooses her dental booking and clicks "Reschedule."</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-purple-500 text-white rounded-full shadow text-xs">↻</span>
+                              <span>She picks a new time for Wednesday at 10:00 AM.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-purple-500 text-white rounded-full shadow text-xs">↻</span>
+                              <span>The system updates her appointment and sends her a notification.</span>
+                            </li>
+                          </ul>
+                        </div>
+                        {/* Use Case 3 */}
+                        <div className="bg-blue-50 p-4 rounded-xl shadow">
+                          <h6 className="font-semibold mb-1">Use Case 3: Set Available Appointment Slots</h6>
+                          <div className="text-sm text-gray-700 mb-1"><b>Actor:</b> Business (BrightSmiles Clinic Owner)</div>
+                          <div className="text-sm text-gray-700 mb-1"><b>Description:</b> The clinic wants to set up appointment slots for next week.</div>
+                          <ul className="ml-6 space-y-2">
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-green-500 text-white rounded-full shadow text-xs">⏰</span>
+                              <span>The clinic owner logs into the business dashboard.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-green-500 text-white rounded-full shadow text-xs">⏰</span>
+                              <span>They select days and set available time ranges.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-green-500 text-white rounded-full shadow text-xs">⏰</span>
+                              <span>Schedulink generates appointment slots for those days.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-green-500 text-white rounded-full shadow text-xs">⏰</span>
+                              <span>Slots show up for users to book.</span>
+                            </li>
+                          </ul>
+                        </div>
+                        {/* Use Case 4 */}
+                        <div className="bg-blue-50 p-4 rounded-xl shadow">
+                          <h6 className="font-semibold mb-1">Use Case 4: Create New User Account</h6>
+                          <div className="text-sm text-gray-700 mb-1"><b>Actor:</b> Admin (John)</div>
+                          <div className="text-sm text-gray-700 mb-1"><b>Description:</b> A new employee joins BrightSmiles and needs a Schedulink account.</div>
+                          <ul className="ml-6 space-y-2">
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-yellow-500 text-white rounded-full shadow text-xs">👤</span>
+                              <span>John logs into the admin dashboard.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-yellow-500 text-white rounded-full shadow text-xs">👤</span>
+                              <span>He clicks “Create User” and fills in the new employee’s details.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-yellow-500 text-white rounded-full shadow text-xs">👤</span>
+                              <span>Schedulink sends login credentials to the new user.</span>
+                            </li>
+                          </ul>
+                        </div>
+                        {/* Use Case 5 */}
+                        <div className="bg-blue-50 p-4 rounded-xl shadow">
+                          <h6 className="font-semibold mb-1">Use Case 5: Cancel Appointment</h6>
+                          <div className="text-sm text-gray-700 mb-1"><b>Actor:</b> User (Sarah)</div>
+                          <div className="text-sm text-gray-700 mb-1"><b>Description:</b> Sarah decides to cancel her dental appointment.</div>
+                          <ul className="ml-6 space-y-2">
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-red-500 text-white rounded-full shadow text-xs">✗</span>
+                              <span>Sarah logs in and goes to her appointments.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-red-500 text-white rounded-full shadow text-xs">✗</span>
+                              <span>She selects the booking and clicks "Cancel."</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-red-500 text-white rounded-full shadow text-xs">✗</span>
+                              <span>Schedulink updates the status and frees up the slot.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-red-500 text-white rounded-full shadow text-xs">✗</span>
+                              <span>Both Sarah and the clinic get cancellation notifications.</span>
+                            </li>
+                          </ul>
+                        </div>
+                        {/* Use Case 6 */}
+                        <div className="bg-blue-50 p-4 rounded-xl shadow">
+                          <h6 className="font-semibold mb-1">Use Case 6: View Daily Schedule</h6>
+                          <div className="text-sm text-gray-700 mb-1"><b>Actor:</b> Business (BrightSmiles Clinic Owner)</div>
+                          <div className="text-sm text-gray-700 mb-1"><b>Description:</b> The clinic wants to view today’s schedule.</div>
+                          <ul className="ml-6 space-y-2">
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-indigo-500 text-white rounded-full shadow text-xs">📅</span>
+                              <span>The owner logs into the dashboard.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-indigo-500 text-white rounded-full shadow text-xs">📅</span>
+                              <span>They select "Today’s Schedule."</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-indigo-500 text-white rounded-full shadow text-xs">📅</span>
+                              <span>Schedulink shows all booked slots and client details for that day.</span>
+                            </li>
+                          </ul>
+                        </div>
+                        {/* Use Case 7 */}
+                        <div className="bg-blue-50 p-4 rounded-xl shadow">
+                          <h6 className="font-semibold mb-1">Use Case 7: Deactivate User Account</h6>
+                          <div className="text-sm text-gray-700 mb-1"><b>Actor:</b> Admin (John)</div>
+                          <div className="text-sm text-gray-700 mb-1"><b>Description:</b> An employee leaves BrightSmiles and their account needs to be deactivated.</div>
+                          <ul className="ml-6 space-y-2">
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-gray-500 text-white rounded-full shadow text-xs">🚫</span>
+                              <span>John logs in and opens the user list.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-gray-500 text-white rounded-full shadow text-xs">🚫</span>
+                              <span>He finds the employee and clicks "Deactivate."</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 w-4 h-4 flex items-center justify-center bg-gray-500 text-white rounded-full shadow text-xs">🚫</span>
+                              <span>Schedulink disables the account, blocking access.</span>
+                            </li>
                           </ul>
                         </div>
                       </div>
@@ -1627,6 +1761,399 @@ const CaseStudy = () => {
                         <li><span className="font-bold">Regulatory Authorities:</span> Ensure system compliance with data protection laws (e.g., GDPR).</li>
                         <li><span className="font-bold">Third-Party Integrations (Optional):</span> External calendar services (Google Calendar, Outlook) if/when integrated. May sync appointments for users/businesses.</li>
                       </ul>
+                    </div>
+                  </div>
+                )}
+              </div>
+              {/* Schedulink - Fully Dressed Use Cases */}
+              <div className="h-4 md:h-12" />
+              <div className="border rounded-lg">
+                <button
+                  onClick={() => toggleDoc('schedulinkFullyDressedUseCases')}
+                  className="w-full flex items-center justify-between p-3 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-blue-100 rounded flex items-center justify-center">
+                      <span className="text-xs font-mono">📝</span>
+                    </div>
+                    <div className="text-left">
+                      <div className="font-medium text-gray-900">Schedulink – Fully Dressed Use Case Scenarios</div>
+                      <div className="text-sm text-gray-600">Fully dressed use case scenarios for Schedulink</div>
+                    </div>
+                  </div>
+                  {expandedDocs.schedulinkFullyDressedUseCases ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+                </button>
+                {expandedDocs.schedulinkFullyDressedUseCases && (
+                  <div className="p-6 border-t bg-white">
+                    <h5 className="font-semibold text-gray-900 mb-4"></h5>
+                    <div className="space-y-6">
+                      {/* Use Case 1 */}
+                      <div className="bg-blue-50 p-4 rounded-xl shadow">
+                        <h6 className="font-semibold mb-1">Use Case 1: Book an Appointment</h6>
+                        <div className="overflow-x-auto">
+                          <table className="min-w-full text-sm mb-6">
+                            <tbody>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Use Case Name</td><td className="py-1">Book an Appointment</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Scenario Name</td><td className="py-1">Sarah books a dental checkup at BrightSmiles</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Level</td><td className="py-1">User Goal</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Triggering Event</td><td className="py-1">User selects "Book Appointment" after logging in</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Brief Description</td><td className="py-1">A user browses available slots and books an appointment at a clinic.</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Actors</td><td className="py-1">User (Sarah), Business (BrightSmiles), System</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Use Cases</td><td className="py-1">Appointment Booking</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Stakeholders</td><td className="py-1">
+                                <ul className="list-disc ml-6">
+                                  <li>User: Wants easy booking and confirmation.</li>
+                                  <li>Business: Wants efficient booking and no double-booking.</li>
+                                  <li>Admin: Wants accurate system operation.</li>
+                                </ul>
+                              </td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Pre-Condition</td><td className="py-1">User is logged in; Business has available slots.</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Post-Condition</td><td className="py-1">Appointment is booked; Notifications sent to user and business.</td></tr>
+                              <tr>
+                                <td className="font-semibold pr-4 py-1 text-gray-700 align-top">Flow of Events</td>
+                                <td className="py-1">
+                                  <table className="min-w-full text-xs border">
+                                    <thead>
+                                      <tr className="bg-blue-100">
+                                        <th className="px-2 py-1 border">Actor</th>
+                                        <th className="px-2 py-1 border">Action</th>
+                                        <th className="px-2 py-1 border">System Response</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr><td className="border px-2 py-1">Sarah</td><td className="border px-2 py-1">Logs in</td><td className="border px-2 py-1"></td></tr>
+                                      <tr><td className="border px-2 py-1">Sarah</td><td className="border px-2 py-1">Opens booking page</td><td className="border px-2 py-1"></td></tr>
+                                      <tr><td className="border px-2 py-1">Sarah</td><td className="border px-2 py-1">Selects clinic and slot</td><td className="border px-2 py-1"></td></tr>
+                                      <tr><td className="border px-2 py-1">Sarah</td><td className="border px-2 py-1">Confirms booking</td><td className="border px-2 py-1">Receives request, checks slot availability, books slot, sends confirmation</td></tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Extensions</td><td className="py-1">Slot becomes unavailable before confirmation: System prompts to select another slot.</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Exceptional Scenarios</td><td className="py-1">
+                                <ul className="list-disc ml-6">
+                                  <li>No slots available: System displays "No slots available."</li>
+                                  <li>Network failure: Booking fails, user prompted to retry.</li>
+                                </ul>
+                              </td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Technology/Data Variations</td><td className="py-1">Web/Mobile interface; Email/SMS notifications; Slot/user data in relational DB.</td></tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                       {/* Use Case 2 */}
+                      <div className="bg-blue-50 p-4 rounded-xl shadow mt-8">
+                        <h6 className="font-semibold mb-1">Use Case 2: Reschedule Appointment</h6>
+                        <div className="overflow-x-auto">
+                          <table className="min-w-full text-sm mb-6">
+                            <tbody>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Use Case Name</td><td className="py-1">Reschedule Appointment</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Scenario Name</td><td className="py-1">Sarah changes her dental appointment time</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Level</td><td className="py-1">User Goal</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Triggering Event</td><td className="py-1">User selects "Reschedule" on an existing appointment</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Brief Description</td><td className="py-1">A user changes the time of an existing appointment.</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Actors</td><td className="py-1">User (Sarah), Business, System</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Use Cases</td><td className="py-1">Appointment Management</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Stakeholders</td><td className="py-1">
+                                <ul className="list-disc ml-6">
+                                  <li>User: Wants to change timing easily.</li>
+                                  <li>Business: Needs updated schedule.</li>
+                                  <li>Admin: Wants accurate records.</li>
+                                </ul>
+                              </td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Pre-Condition</td><td className="py-1">Appointment exists; User is logged in.</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Post-Condition</td><td className="py-1">Appointment updated; Notifications sent.</td></tr>
+                              <tr>
+                                <td className="font-semibold pr-4 py-1 text-gray-700 align-top">Flow of Events</td>
+                                <td className="py-1">
+                                  <table className="min-w-full text-xs border">
+                                    <thead>
+                                      <tr className="bg-blue-100">
+                                        <th className="px-2 py-1 border">Actor</th>
+                                        <th className="px-2 py-1 border">Action</th>
+                                        <th className="px-2 py-1 border">System Response</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr><td className="border px-2 py-1">Sarah</td><td className="border px-2 py-1">Logs in</td><td className="border px-2 py-1"></td></tr>
+                                      <tr><td className="border px-2 py-1">Sarah</td><td className="border px-2 py-1">Goes to appointments</td><td className="border px-2 py-1"></td></tr>
+                                      <tr><td className="border px-2 py-1">Sarah</td><td className="border px-2 py-1">Selects appointment</td><td className="border px-2 py-1"></td></tr>
+                                      <tr><td className="border px-2 py-1">Sarah</td><td className="border px-2 py-1">Picks new slot</td><td className="border px-2 py-1">Receives request, checks slot availability, updates appointment, sends notification</td></tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Extensions</td><td className="py-1">New slot unavailable: System prompts to choose another slot.</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Exceptional Scenarios</td><td className="py-1">
+                                <ul className="list-disc ml-6">
+                                  <li>No alternative slots: System displays "No slots available."</li>
+                                  <li>Appointment already past: Cannot be rescheduled.</li>
+                                </ul>
+                              </td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Technology/Data Variations</td><td className="py-1">Web/Mobile interface; Email/SMS notifications; Appointment data in relational DB.</td></tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                        {/* Use Case 3 */}
+                      <div className="bg-blue-50 p-4 rounded-xl shadow mt-8">
+                        <h6 className="font-semibold mb-1">Use Case 3: Set Available Appointment Slots</h6>
+                        <div className="overflow-x-auto">
+                          <table className="min-w-full text-sm mb-6">
+                            <tbody>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Use Case Name</td><td className="py-1">Set Available Appointment Slots</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Scenario Name</td><td className="py-1">BrightSmiles owner sets up slots for next week</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Level</td><td className="py-1">Business Process</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Triggering Event</td><td className="py-1">Business logs in and navigates to slot management</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Brief Description</td><td className="py-1">Business defines days and times for appointments.</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Actors</td><td className="py-1">Business Owner, System</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Use Cases</td><td className="py-1">Slot Management</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Stakeholders</td><td className="py-1">
+                                <ul className="list-disc ml-6">
+                                  <li>Business: Wants to manage availability.</li>
+                                  <li>Users: Need up-to-date options.</li>
+                                  <li>Admin: Wants real-time changes.</li>
+                                </ul>
+                              </td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Pre-Condition</td><td className="py-1">Business account exists; Owner is logged in.</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Post-Condition</td><td className="py-1">Slots are available for users to book.</td></tr>
+                              <tr>
+                                <td className="font-semibold pr-4 py-1 text-gray-700 align-top">Flow of Events</td>
+                                <td className="py-1">
+                                  <table className="min-w-full text-xs border">
+                                    <thead>
+                                      <tr className="bg-blue-100">
+                                        <th className="px-2 py-1 border">Actor</th>
+                                        <th className="px-2 py-1 border">Action</th>
+                                        <th className="px-2 py-1 border">System Response</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr><td className="border px-2 py-1">Owner</td><td className="border px-2 py-1">Logs in</td><td className="border px-2 py-1"></td></tr>
+                                      <tr><td className="border px-2 py-1">Owner</td><td className="border px-2 py-1">Navigates to slot mgmt.</td><td className="border px-2 py-1"></td></tr>
+                                      <tr><td className="border px-2 py-1">Owner</td><td className="border px-2 py-1">Sets days/times</td><td className="border px-2 py-1">Receives request, generates slots, updates data, slots available to users</td></tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Extensions</td><td className="py-1">Overlapping slots: System prompts for correction.</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Exceptional Scenarios</td><td className="py-1">
+                                <ul className="list-disc ml-6">
+                                  <li>Invalid time range: System displays error.</li>
+                                </ul>
+                              </td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Technology/Data Variations</td><td className="py-1">Web/Mobile interface; Slot data in relational DB.</td></tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                       {/* Use Case 4 */}
+                      <div className="bg-blue-50 p-4 rounded-xl shadow mt-8">
+                        <h6 className="font-semibold mb-1">Use Case 4: Create New User Account</h6>
+                        <div className="overflow-x-auto">
+                          <table className="min-w-full text-sm mb-6">
+                            <tbody>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Use Case Name</td><td className="py-1">Create New User Account</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Scenario Name</td><td className="py-1">Admin adds a new employee to BrightSmiles</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Level</td><td className="py-1">Admin Process</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Triggering Event</td><td className="py-1">Admin selects "Create User"</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Brief Description</td><td className="py-1">Admin creates an account for a new staff member.</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Actors</td><td className="py-1">Admin (John), System</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Use Cases</td><td className="py-1">User Management</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Stakeholders</td><td className="py-1">
+                                <ul className="list-disc ml-6">
+                                  <li>Admin: Wants to add users.</li>
+                                  <li>Business: Wants staff access.</li>
+                                  <li>New Employee: Needs credentials.</li>
+                                </ul>
+                              </td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Pre-Condition</td><td className="py-1">Admin has dashboard access.</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Post-Condition</td><td className="py-1">User account created; Credentials sent.</td></tr>
+                              <tr>
+                                <td className="font-semibold pr-4 py-1 text-gray-700 align-top">Flow of Events</td>
+                                <td className="py-1">
+                                  <table className="min-w-full text-xs border">
+                                    <thead>
+                                      <tr className="bg-blue-100">
+                                        <th className="px-2 py-1 border">Actor</th>
+                                        <th className="px-2 py-1 border">Action</th>
+                                        <th className="px-2 py-1 border">System Response</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr><td className="border px-2 py-1">John</td><td className="border px-2 py-1">Logs in</td><td className="border px-2 py-1"></td></tr>
+                                      <tr><td className="border px-2 py-1">John</td><td className="border px-2 py-1">Selects "Create User"</td><td className="border px-2 py-1"></td></tr>
+                                      <tr><td className="border px-2 py-1">John</td><td className="border px-2 py-1">Enters user details</td><td className="border px-2 py-1">Receives info, creates account, sends credentials via email</td></tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Extensions</td><td className="py-1">Duplicate email: System requests different email.</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Exceptional Scenarios</td><td className="py-1">
+                                <ul className="list-disc ml-6">
+                                  <li>Email delivery fails: Credentials not received.</li>
+                                </ul>
+                              </td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Technology/Data Variations</td><td className="py-1">Admin dashboard; Email system for credentials; User data in relational DB.</td></tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      {/* Use Case 5 */}
+                        <div className="bg-blue-50 p-4 rounded-xl shadow mt-8">
+                          <h6 className="font-semibold mb-1">Use Case 5: Cancel Appointment</h6>
+                          <div className="overflow-x-auto">
+                            <table className="min-w-full text-sm mb-6">
+                              <tbody>
+                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Use Case Name</td><td className="py-1">Cancel Appointment</td></tr>
+                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Scenario Name</td><td className="py-1">Sarah cancels her scheduled dental appointment</td></tr>
+                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Level</td><td className="py-1">User Goal</td></tr>
+                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Triggering Event</td><td className="py-1">User selects "Cancel" on an appointment</td></tr>
+                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Brief Description</td><td className="py-1">Cancels an existing booking and frees up the slot.</td></tr>
+                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Actors</td><td className="py-1">User (Sarah), Business, System</td></tr>
+                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Use Cases</td><td className="py-1">Appointment Management</td></tr>
+                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Stakeholders</td><td className="py-1">
+                                  <ul className="list-disc ml-6">
+                                    <li>User: Needs to cancel easily.</li>
+                                    <li>Business: Wants notification.</li>
+                                    <li>Admin: Wants accurate records.</li>
+                                  </ul>
+                                </td></tr>
+                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Pre-Condition</td><td className="py-1">Appointment exists; User is logged in.</td></tr>
+                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Post-Condition</td><td className="py-1">Appointment canceled; Notifications sent; Slot freed.</td></tr>
+                                <tr>
+                                  <td className="font-semibold pr-4 py-1 text-gray-700 align-top">Flow of Events</td>
+                                  <td className="py-1">
+                                    <table className="min-w-full text-xs border">
+                                      <thead>
+                                        <tr className="bg-blue-100">
+                                          <th className="px-2 py-1 border">Actor</th>
+                                          <th className="px-2 py-1 border">Action</th>
+                                          <th className="px-2 py-1 border">System Response</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr><td className="border px-2 py-1">Sarah</td><td className="border px-2 py-1">Logs in</td><td className="border px-2 py-1"></td></tr>
+                                        <tr><td className="border px-2 py-1">Sarah</td><td className="border px-2 py-1">Goes to appointments</td><td className="border px-2 py-1"></td></tr>
+                                        <tr><td className="border px-2 py-1">Sarah</td><td className="border px-2 py-1">Selects appointment to cancel</td><td className="border px-2 py-1">Receives request, cancels appointment, frees slot, sends notification</td></tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Extensions</td><td className="py-1">Appointment past: Cannot be canceled.</td></tr>
+                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Exceptional Scenarios</td><td className="py-1">
+                                  <ul className="list-disc ml-6">
+                                    <li>Network failure: Cancellation fails, user prompted to retry.</li>
+                                  </ul>
+                                </td></tr>
+                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Technology/Data Variations</td><td className="py-1">Web/Mobile interface; Email/SMS notifications; Appointment data in relational DB.</td></tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                         {/* Use Case 6 */}
+                      <div className="bg-blue-50 p-4 rounded-xl shadow mt-8">
+                        <h6 className="font-semibold mb-1">Use Case 6: View Daily Schedule</h6>
+                        <div className="overflow-x-auto">
+                          <table className="min-w-full text-sm mb-6">
+                            <tbody>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Use Case Name</td><td className="py-1">View Daily Schedule</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Scenario Name</td><td className="py-1">BrightSmiles owner views today’s appointments</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Level</td><td className="py-1">Business Process</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Triggering Event</td><td className="py-1">Owner selects "Today’s Schedule" from dashboard</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Brief Description</td><td className="py-1">Shows all appointments for the current day.</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Actors</td><td className="py-1">Business Owner, System</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Use Cases</td><td className="py-1">Appointment Management</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Stakeholders</td><td className="py-1">
+                                <ul className="list-disc ml-6">
+                                  <li>Business: Needs daily view.</li>
+                                  <li>Users: Expect appointments honored.</li>
+                                  <li>Admin: Wants accurate reporting.</li>
+                                </ul>
+                              </td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Pre-Condition</td><td className="py-1">Owner is logged in.</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Post-Condition</td><td className="py-1">Daily schedule displayed.</td></tr>
+                              <tr>
+                                <td className="font-semibold pr-4 py-1 text-gray-700 align-top">Flow of Events</td>
+                                <td className="py-1">
+                                  <table className="min-w-full text-xs border">
+                                    <thead>
+                                      <tr className="bg-blue-100">
+                                        <th className="px-2 py-1 border">Actor</th>
+                                        <th className="px-2 py-1 border">Action</th>
+                                        <th className="px-2 py-1 border">System Response</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr><td className="border px-2 py-1">Owner</td><td className="border px-2 py-1">Logs in</td><td className="border px-2 py-1"></td></tr>
+                                      <tr><td className="border px-2 py-1">Owner</td><td className="border px-2 py-1">Selects "Today’s Schedule"</td><td className="border px-2 py-1">Receives request, displays list of appointments and client details</td></tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Extensions</td><td className="py-1">No appointments: System displays "No appointments scheduled."</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Exceptional Scenarios</td><td className="py-1">
+                                <ul className="list-disc ml-6">
+                                  <li>Data sync error: Incomplete information shown.</li>
+                                </ul>
+                              </td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Technology/Data Variations</td><td className="py-1">Web dashboard; Appointment data in relational DB.</td></tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      {/* Use Case 7 */}
+                      <div className="bg-blue-50 p-4 rounded-xl shadow mt-8">
+                        <h6 className="font-semibold mb-1">Use Case 7: Deactivate User Account</h6>
+                        <div className="overflow-x-auto">
+                          <table className="min-w-full text-sm mb-6">
+                            <tbody>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Use Case Name</td><td className="py-1">Deactivate User Account</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Scenario Name</td><td className="py-1">Admin disables an employee’s access after they leave</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Level</td><td className="py-1">Admin Process</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Triggering Event</td><td className="py-1">Admin selects "Deactivate" on user list</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Brief Description</td><td className="py-1">Disables user’s access to the system.</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Actors</td><td className="py-1">Admin (John), System</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Use Cases</td><td className="py-1">User Management</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Stakeholders</td><td className="py-1">
+                                <ul className="list-disc ml-6">
+                                  <li>Admin: Needs to remove access.</li>
+                                  <li>Business: Wants staff removed.</li>
+                                  <li>User: Account disabled.</li>
+                                </ul>
+                              </td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Pre-Condition</td><td className="py-1">User account exists; Admin is logged in.</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Post-Condition</td><td className="py-1">Account deactivated; access blocked.</td></tr>
+                              <tr>
+                                <td className="font-semibold pr-4 py-1 text-gray-700 align-top">Flow of Events</td>
+                                <td className="py-1">
+                                  <table className="min-w-full text-xs border">
+                                    <thead>
+                                      <tr className="bg-blue-100">
+                                        <th className="px-2 py-1 border">Actor</th>
+                                        <th className="px-2 py-1 border">Action</th>
+                                        <th className="px-2 py-1 border">System Response</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr><td className="border px-2 py-1">John</td><td className="border px-2 py-1">Logs in</td><td className="border px-2 py-1"></td></tr>
+                                      <tr><td className="border px-2 py-1">John</td><td className="border px-2 py-1">Opens user list</td><td className="border px-2 py-1"></td></tr>
+                                      <tr><td className="border px-2 py-1">John</td><td className="border px-2 py-1">Selects employee to deactivate</td><td className="border px-2 py-1">Receives request, deactivates account, blocks access, shows success message</td></tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Extensions</td><td className="py-1">Account already inactive: System displays "Already deactivated."</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Exceptional Scenarios</td><td className="py-1">
+                                <ul className="list-disc ml-6">
+                                  <li>Error updating database: Deactivation fails, admin prompted to retry.</li>
+                                </ul>
+                              </td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Technology/Data Variations</td><td className="py-1">Admin dashboard; User data in relational DB.</td></tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 )}
