@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ZoomableImageWithPan from '../components/ZoomableImageWithPan';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, CheckCircle, Target, Users, Zap, Shield, Globe, Smartphone, Code, Database, Cloud, TrendingUp, ChevronDown, ChevronRight } from 'lucide-react';
 
@@ -790,10 +791,9 @@ const CaseStudy = () => {
                   </button>
                   {expandedDocs.useCaseDiagram && (
                     <div className="p-6 border-t bg-white flex flex-col items-center">
-                      <img
+                      <ZoomableImageWithPan
                         src="/images/use_case_diagram.png"
                         alt="Schedulink Use Case Diagram"
-                        className="max-w-full h-auto rounded shadow"
                       />
                     </div>
                   )}
@@ -817,10 +817,9 @@ const CaseStudy = () => {
                   </button>
                   {expandedDocs.sequenceDiagram && (
                     <div className="p-6 border-t bg-white flex flex-col items-center">
-                      <img
+                      <ZoomableImageWithPan
                         src="/images/sequence_diagram.png"
                         alt="Schedulink Sequence Diagram"
-                        className="max-w-full h-auto rounded shadow"
                       />
                     </div>
                   )}
@@ -1038,10 +1037,9 @@ const CaseStudy = () => {
                   </button>
                   {expandedDocs.classDiagram && (
                     <div className="p-6 border-t bg-white flex flex-col items-center">
-                      <img
+                      <ZoomableImageWithPan
                         src="/images/class_diagram.png"
                         alt="Schedulink Class Diagram"
-                        className="max-w-full h-auto rounded shadow"
                       />
                     </div>
                   )}
@@ -1066,10 +1064,9 @@ const CaseStudy = () => {
                   </button>
                   {expandedDocs.activityDiagram && (
                     <div className="p-6 border-t bg-white flex flex-col items-center">
-                      <img
+                      <ZoomableImageWithPan
                         src="/images/activity_diagram.png"
                         alt="Schedulink Activity Diagram"
-                        className="max-w-full h-auto rounded shadow"
                       />
                     </div>
                   )}
@@ -2200,10 +2197,9 @@ const CaseStudy = () => {
                 </button>
                 {expandedDocs.domainDiagram && (
                   <div className="p-6 border-t bg-white flex flex-col items-center">
-                    <img
+                    <ZoomableImageWithPan
                       src="/images/domain_diagram.png"
                       alt="Schedulink Domain Diagram"
-                      className="max-w-full h-auto rounded shadow"
                     />
                   </div>
                 )}
@@ -2229,10 +2225,9 @@ const CaseStudy = () => {
                 </button>
                 {expandedDocs.collaborationDiagram && (
                   <div className="p-6 border-t bg-white flex flex-col items-center">
-                    <img
+                    <ZoomableImageWithPan
                       src="/images/colloboration_diagram.png"
                       alt="Schedulink Collaboration Diagram"
-                      className="max-w-full h-auto rounded shadow"
                     />
                   </div>
                 )}
@@ -2444,10 +2439,9 @@ const CaseStudy = () => {
                 </button>
                 {expandedDocs.stateTransitionDiagram && (
                   <div className="p-6 border-t bg-white flex flex-col items-center">
-                    <img
+                    <ZoomableImageWithPan
                       src="/images/state_transition_diagram.png"
                       alt="Schedulink State Transition Diagram"
-                      className="max-w-full h-auto rounded shadow"
                     />
                   </div>
                 )}
