@@ -779,52 +779,49 @@ const CaseStudy = () => {
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 bg-purple-100 rounded flex items-center justify-center">
-                        <span className="text-xs font-mono">🔄</span>
+                        <span className="text-xs font-mono">🗂️</span>
                       </div>
                       <div className="text-left">
                         <div className="font-medium text-gray-900">Schedulink - Use Case Diagram</div>
-                        <div className="text-sm text-gray-600">All PlantUML Files are checked in</div>
+                        <div className="text-sm text-gray-600">Use case diagram for Schedulink</div>
                       </div>
                     </div>
                     {expandedDocs.useCaseDiagram ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
                   </button>
                   {expandedDocs.useCaseDiagram && (
-                    <div className="p-6 border-t bg-white">
-                      <h5 className="font-semibold text-gray-900 mb-4">Activity Diagram</h5>
-                      <p className="text-gray-600 mb-4">Shows the workflow of activities and actions in the appointment booking process from start to finish.</p>
-                      <div className="space-y-4">
-                        <div className="bg-gray-50 p-4 rounded">
-                          <h6 className="font-semibold mb-2">User Registration Flow:</h6>
-                          <ol className="text-sm space-y-1 list-decimal list-inside">
-                            <li>User accesses the system</li>
-                            <li>Provides registration details (name, email, phone)</li>
-                            <li>System validates information</li>
-                            <li>User account is created</li>
-                            <li>User receives confirmation</li>
-                          </ol>
-                        </div>
-                        <div className="bg-gray-50 p-4 rounded">
-                          <h6 className="font-semibold mb-2">Slot Creation Flow:</h6>
-                          <ol className="text-sm space-y-1 list-decimal list-inside">
-                            <li>Service provider logs in</li>
-                            <li>Accesses slot creation form</li>
-                            <li>Enters slot details (date, time, description)</li>
-                            <li>System validates slot availability</li>
-                            <li>Slot is created and published</li>
-                          </ol>
-                        </div>
-                        <div className="bg-gray-50 p-4 rounded">
-                          <h6 className="font-semibold mb-2">Booking Flow:</h6>
-                          <ol className="text-sm space-y-1 list-decimal list-inside">
-                            <li>Customer views available slots</li>
-                            <li>Selects desired slot</li>
-                            <li>Confirms booking details</li>
-                            <li>System processes booking</li>
-                            <li>Booking confirmation sent</li>
-                            <li>Slot status updated to booked</li>
-                          </ol>
-                        </div>
+                    <div className="p-6 border-t bg-white flex flex-col items-center">
+                      <img
+                        src="/images/use_case_diagram.png"
+                        alt="Schedulink Use Case Diagram"
+                        className="max-w-full h-auto rounded shadow"
+                      />
+                    </div>
+                  )}
+                </div>
+                {/* Schedulink - Sequence Diagram */}
+                <div className="border rounded-lg">
+                  <button
+                    onClick={() => toggleDoc('sequenceDiagram')}
+                    className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-purple-100 rounded flex items-center justify-center">
+                        <span className="text-xs font-mono">🔁</span>
                       </div>
+                      <div className="text-left">
+                        <div className="font-medium text-gray-900">Schedulink - Sequence Diagram</div>
+                        <div className="text-sm text-gray-600">Sequence diagram for Schedulink</div>
+                      </div>
+                    </div>
+                    {expandedDocs.sequenceDiagram ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+                  </button>
+                  {expandedDocs.sequenceDiagram && (
+                    <div className="p-6 border-t bg-white flex flex-col items-center">
+                      <img
+                        src="/images/sequence_diagram.png"
+                        alt="Schedulink Sequence Diagram"
+                        className="max-w-full h-auto rounded shadow"
+                      />
                     </div>
                   )}
                 </div>
@@ -2158,7 +2155,62 @@ const CaseStudy = () => {
                   </div>
                 )}
               </div>
+              {/* Schedulink -  Domain Diagram */}
+                <div className="border rounded-lg">
+                  <button
+                    onClick={() => toggleDoc('domainDiagram')}
+                    className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-purple-100 rounded flex items-center justify-center">
+                        <span className="text-xs font-mono">🏷️</span>
+                      </div>
+                      <div className="text-left">
+                        <div className="font-medium text-gray-900">Schedulink - Domain Diagram</div>
+                        <div className="text-sm text-gray-600">Domain diagram for Schedulink</div>
+                      </div>
+                    </div>
+                    {expandedDocs.domainDiagram ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+                  </button>
+                  {expandedDocs.domainDiagram && (
+                    <div className="p-6 border-t bg-white flex flex-col items-center">
+                      <img
+                        src="/images/domain_diagram.png"
+                        alt="Schedulink Domain Diagram"
+                        className="max-w-full h-auto rounded shadow"
+                      />
+                    </div>
+                  )}
+                </div>
+                {/* Schedulink -  Collaboration Diagram */}
+                <div className="border rounded-lg">
+                  <button
+                    onClick={() => toggleDoc('collaborationDiagram')}
+                    className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-purple-100 rounded flex items-center justify-center">
+                        <span className="text-xs font-mono">🧑‍🤝‍🧑</span>
+                      </div>
+                      <div className="text-left">
+                        <div className="font-medium text-gray-900">Schedulink - Collaboration Diagram</div>
+                        <div className="text-sm text-gray-600">Collaboration diagram for Schedulink</div>
+                      </div>
+                    </div>
+                    {expandedDocs.collaborationDiagram ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+                  </button>
+                  {expandedDocs.collaborationDiagram && (
+                    <div className="p-6 border-t bg-white flex flex-col items-center">
+                      <img
+                        src="/images/colloboration_diagram.png"
+                        alt="Schedulink Collaboration Diagram"
+                        className="max-w-full h-auto rounded shadow"
+                      />
+                    </div>
+                  )}
+              </div>
             </div>
+            
           </div>
         </div>
 
