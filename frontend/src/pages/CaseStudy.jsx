@@ -355,8 +355,8 @@ const CaseStudy = () => {
                         <span className="text-xs font-mono">📄</span>
                       </div>
                       <div className="text-left">
-                        <div className="font-medium text-gray-900">Schedulink - Document.pdf</div>
-                        <div className="text-sm text-gray-600">Complete Documentation of Schedulink</div>
+                        <div className="font-medium text-gray-900">Schedulink – System Description</div>
+                        <div className="text-sm text-gray-600">Information about Schedulink's webapp</div>
                       </div>
                     </div>
                     {expandedDocs.schedulinkDocument ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
@@ -364,98 +364,102 @@ const CaseStudy = () => {
                   {expandedDocs.schedulinkDocument && (
                     <div className="p-6 border-t bg-white">
                       <div className="prose max-w-none">
-                        <h4 className="text-lg font-semibold mb-4">Schedulink - Smart Appointment Scheduler</h4>
+                        <h4 className="text-lg font-semibold mb-4">Schedulink - Case Study – System Description</h4>
                         <div className="space-y-4 text-sm">
-                          <div>
-                            <h5 className="font-semibold text-gray-900 mb-2">📘 Overview</h5>
-                            <p className="text-gray-600 mb-2">Schedulink is a comprehensive full-stack web application designed to streamline the creation and management of appointment slots. The platform offers robust user management, flexible slot scheduling, and real-time appointment tracking, ensuring an efficient and seamless experience for both administrators and end-users.</p>
-                            <p className="text-gray-600 mb-2"><strong>🌐 Live Platform:</strong> <a href="https://schedulink.info/" className="text-blue-600 hover:underline">https://schedulink.info/</a></p>
-                            <p className="text-gray-600"><strong>Technology Stack:</strong> React with Tailwind CSS (powered by Vite), FastAPI (Python), SQLite (with future support for PostgreSQL), Docker & Docker Compose</p>
-                          </div>
-                          <div>
-                            <h5 className="font-semibold text-gray-900 mb-2">🎯 Purpose</h5>
-                            <p className="text-gray-600">Schedulink aims to deliver a lightweight, containerized solution for appointment management that:</p>
-                            <ul className="text-gray-600 space-y-1 ml-4">
-                              <li>• Empowers administrators and users to create and manage available slots</li>
-                              <li>• Enables customers to view and book appointment times effortlessly</li>
-                              <li>• Provides a responsive, accessible, and intuitive user interface</li>
-                              <li>• Facilitates straightforward deployment across cloud and on-premises environments</li>
-                            </ul>
-                          </div>
-                          <div>
-                            <h5 className="font-semibold text-gray-900 mb-2">✅ Key Features</h5>
-                            <ul className="text-gray-600 space-y-1 ml-4">
-                              <li>• User registration with essential profile information</li>
-                              <li>• Creation and listing of appointment slots</li>
-                              <li>• RESTful APIs for all core functionalities</li>
-                              <li>• Integrated Swagger UI for comprehensive API documentation</li>
-                              <li>• Responsive frontend with real-time slot updates</li>
-                              <li>• Modular and maintainable codebase for ease of development</li>
-                            </ul>
-                          </div>
-                          <div>
-                            <h5 className="font-semibold text-gray-900 mb-2">⚙️ Technology Overview</h5>
-                            <div className="overflow-x-auto">
-                              <table className="min-w-full border border-gray-200">
-                                <thead>
-                                  <tr className="bg-gray-50">
-                                    <th className="border px-4 py-2 text-left">Layer</th>
-                                    <th className="border px-4 py-2 text-left">Technology</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr><td className="border px-4 py-2">Frontend</td><td className="border px-4 py-2">React, Tailwind CSS, Axios, Vite</td></tr>
-                                  <tr><td className="border px-4 py-2">Backend</td><td className="border px-4 py-2">FastAPI (Python 3)</td></tr>
-                                  <tr><td className="border px-4 py-2">Database</td><td className="border px-4 py-2">SQLite</td></tr>
-                                  <tr><td className="border px-4 py-2">Container</td><td className="border px-4 py-2">Docker, Docker Compose</td></tr>
-                                  <tr><td className="border px-4 py-2">Tools</td><td className="border px-4 py-2">Swagger (OpenAPI), Git</td></tr>
-                                </tbody>
-                              </table>
+                          <p>This system is an online appointment booking platform. It helps people and businesses organize and manage appointments easily, all in one place.</p>
+                          <h5 className="font-semibold text-gray-900 mb-2">What it does:</h5>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="flex items-center gap-3 bg-blue-50 rounded-lg p-3 shadow-sm">
+                              <CheckCircle className="text-blue-500 w-5 h-5" />
+                              <span>Admin-created user accounts</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-green-50 rounded-lg p-3 shadow-sm">
+                              <Zap className="text-green-500 w-5 h-5" />
+                              <span>Book appointments for services or meetings</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-yellow-50 rounded-lg p-3 shadow-sm">
+                              <Database className="text-yellow-500 w-5 h-5" />
+                              <span>Businesses set up available time slots</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-purple-50 rounded-lg p-3 shadow-sm">
+                              <Smartphone className="text-purple-500 w-5 h-5" />
+                              <span>Users see and book slots instantly</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-pink-50 rounded-lg p-3 shadow-sm">
+                              <Cloud className="text-pink-500 w-5 h-5" />
+                              <span>Keeps track of all appointments, users, and times</span>
                             </div>
                           </div>
-                          <div>
-                            <h5 className="font-semibold text-gray-900 mb-2">🛠️ Getting Started</h5>
-                            <div className="bg-gray-100 p-4 rounded font-mono text-xs">
-                              <div># 1. Clone the repository</div>
-                              <div>git clone &lt;repo-url&gt;</div>
-                              <div>cd Schedulink_Project</div>
-                              <div><br/># 2. Build and start with Docker Compose</div>
-                              <div>docker compose up --build</div>
-                              <div><br/># 3. Access the application:</div>
-                              <div># Frontend: http://&lt;host-ip&gt;:3000</div>
-                              <div># Backend & API Docs: http://&lt;host-ip&gt;:8000/docs</div>
+                          <h5 className="font-semibold text-gray-900 mb-2 mt-4">Why it exists:</h5>
+                          <div className="flex flex-col gap-3">
+                            <div className="flex items-center gap-3 bg-orange-50 rounded-lg p-3 shadow-sm">
+                              <ArrowLeft className="text-orange-500 w-5 h-5" />
+                              <span>Eliminates confusion from phone calls, emails, or paper schedules</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-teal-50 rounded-lg p-3 shadow-sm">
+                              <Users className="text-teal-500 w-5 h-5" />
+                              <span>Makes booking easy for customers and businesses</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-red-50 rounded-lg p-3 shadow-sm">
+                              <Shield className="text-red-500 w-5 h-5" />
+                              <span>Reduces double-booking and missed appointments</span>
                             </div>
                           </div>
-                          <div>
-                            <h5 className="font-semibold text-gray-900 mb-2">📌 API Endpoints (FastAPI)</h5>
-                            <div className="overflow-x-auto">
-                              <table className="min-w-full border border-gray-200">
-                                <thead>
-                                  <tr className="bg-gray-50">
-                                    <th className="border px-4 py-2 text-left">Method</th>
-                                    <th className="border px-4 py-2 text-left">Endpoint</th>
-                                    <th className="border px-4 py-2 text-left">Description</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr><td className="border px-4 py-2 text-green-600">POST</td><td className="border px-4 py-2">/users</td><td className="border px-4 py-2">Create a new user</td></tr>
-                                  <tr><td className="border px-4 py-2 text-blue-600">GET</td><td className="border px-4 py-2">/users</td><td className="border px-4 py-2">Retrieve all users</td></tr>
-                                  <tr><td className="border px-4 py-2 text-green-600">POST</td><td className="border px-4 py-2">/slots</td><td className="border px-4 py-2">Create a new slot</td></tr>
-                                  <tr><td className="border px-4 py-2 text-blue-600">GET</td><td className="border px-4 py-2">/slots</td><td className="border px-4 py-2">Retrieve available slots</td></tr>
-                                </tbody>
-                              </table>
+                          <h5 className="font-semibold text-gray-900 mb-2 mt-4">How it works:</h5>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="flex items-center gap-3 bg-indigo-50 rounded-lg p-3 shadow-sm">
+                              <Smartphone className="text-indigo-500 w-5 h-5" />
+                              <span>Website for users to register, log in, and book</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-gray-50 rounded-lg p-3 shadow-sm">
+                              <Code className="text-gray-500 w-5 h-5" />
+                              <span>Backend server manages all booking data</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-blue-50 rounded-lg p-3 shadow-sm">
+                              <Database className="text-blue-500 w-5 h-5" />
+                              <span>Secure database for all information</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-green-50 rounded-lg p-3 shadow-sm">
+                              <TrendingUp className="text-green-500 w-5 h-5" />
+                              <span>Fast, reliable, and user-friendly for all</span>
                             </div>
                           </div>
-                          <div>
-                            <h5 className="font-semibold text-gray-900 mb-2">📦 Deployment Options</h5>
-                            <p className="text-gray-600 mb-2">Schedulink is deployable on:</p>
-                            <ul className="text-gray-600 space-y-1 ml-4">
-                              <li>• AWS EC2 (ensure ports 3000/8000 are open)</li>
-                              <li>• DigitalOcean, Google Cloud Platform</li>
-                              <li>• Docker Desktop for local development</li>
-                            </ul>
-                            <p className="text-gray-600 mt-2"><strong>Planned Enhancements:</strong> Implement user authentication (JWT), Migrate from SQLite to PostgreSQL, Enable slot booking functionality, Integrate email notifications</p>
+                          <h5 className="font-semibold text-gray-900 mb-2 mt-4">Key benefits:</h5>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="flex items-center gap-3 bg-yellow-50 rounded-lg p-3 shadow-sm">
+                              <Globe className="text-yellow-500 w-5 h-5" />
+                              <span>Book anytime, anywhere—no calls needed</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-blue-50 rounded-lg p-3 shadow-sm">
+                              <Zap className="text-blue-500 w-5 h-5" />
+                              <span>Automated scheduling saves time</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-red-50 rounded-lg p-3 shadow-sm">
+                              <Shield className="text-red-500 w-5 h-5" />
+                              <span>Prevents double-booking and missed appointments</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-green-50 rounded-lg p-3 shadow-sm">
+                              <Users className="text-green-500 w-5 h-5" />
+                              <span>Easy management for users and businesses</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-purple-50 rounded-lg p-3 shadow-sm">
+                              <CheckCircle className="text-purple-500 w-5 h-5" />
+                              <span>Modern, professional online presence</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-pink-50 rounded-lg p-3 shadow-sm">
+                              <TrendingUp className="text-pink-500 w-5 h-5" />
+                              <span>Scales with your business growth</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-gray-50 rounded-lg p-3 shadow-sm">
+                              <Shield className="text-gray-500 w-5 h-5" />
+                              <span>Data is always safe and secure</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-orange-50 rounded-lg p-3 shadow-sm">
+                              <CheckCircle className="text-orange-500 w-5 h-5" />
+                              <span>Faster, happier customer experience</span>
+                            </div>
                           </div>
+                          <p className="mt-4">In short, it’s a digital tool to make booking and managing appointments simple and stress-free for everyone.</p>
                         </div>
                       </div>
                     </div>
