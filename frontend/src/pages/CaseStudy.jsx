@@ -858,15 +858,15 @@ const CaseStudy = () => {
                               </tr>
                               <tr>
                                 <td className="font-bold text-blue-800 pr-4 py-2">Cross References</td>
-                                <td className="py-2">Use Case: Book Appointment<br/>Sequence Diagram: Book Appointment</td>
+                                <td className="py-2">Use Case: Book Appointment<br />Sequence Diagram: Book Appointment</td>
                               </tr>
                               <tr className="bg-gray-50">
                                 <td className="font-bold text-blue-800 pr-4 py-2">Preconditions</td>
-                                <td className="py-2">User is authenticated<br/>Selected slot is available</td>
+                                <td className="py-2">User is authenticated<br />Selected slot is available</td>
                               </tr>
                               <tr>
                                 <td className="font-bold text-blue-800 pr-4 py-2">Postconditions</td>
-                                <td className="py-2">- Appointment instance a is created (instance creation)<br/>- a is associated with the user and slot (association formed)<br/>- Slot status is set to 'booked' (attribute modification)<br/>- User and business are notified (notification sent)</td>
+                                <td className="py-2">- Appointment instance a is created (instance creation)<br />- a is associated with the user and slot (association formed)<br />- Slot status is set to 'booked' (attribute modification)<br />- User and business are notified (notification sent)</td>
                               </tr>
                             </tbody>
                           </table>
@@ -882,15 +882,15 @@ const CaseStudy = () => {
                               </tr>
                               <tr>
                                 <td className="font-bold text-blue-800 pr-4 py-2">Cross References</td>
-                                <td className="py-2">Use Case: Reschedule Appointment<br/>Sequence Diagram: Reschedule Appointment</td>
+                                <td className="py-2">Use Case: Reschedule Appointment<br />Sequence Diagram: Reschedule Appointment</td>
                               </tr>
                               <tr className="bg-gray-50">
                                 <td className="font-bold text-blue-800 pr-4 py-2">Preconditions</td>
-                                <td className="py-2">User is authenticated<br/>User has an existing appointment<br/>New slot is available</td>
+                                <td className="py-2">User is authenticated<br />User has an existing appointment<br />New slot is available</td>
                               </tr>
                               <tr>
                                 <td className="font-bold text-blue-800 pr-4 py-2">Postconditions</td>
-                                <td className="py-2">- Appointment instance a is updated with new slot/time (attribute modification)<br/>- Slot associations are updated (association update)<br/>- Notifications are sent to affected parties (notification sent)</td>
+                                <td className="py-2">- Appointment instance a is updated with new slot/time (attribute modification)<br />- Slot associations are updated (association update)<br />- Notifications are sent to affected parties (notification sent)</td>
                               </tr>
                             </tbody>
                           </table>
@@ -906,15 +906,15 @@ const CaseStudy = () => {
                               </tr>
                               <tr>
                                 <td className="font-bold text-blue-800 pr-4 py-2">Cross References</td>
-                                <td className="py-2">Use Case: Cancel Appointment<br/>Sequence Diagram: Cancel Appointment</td>
+                                <td className="py-2">Use Case: Cancel Appointment<br />Sequence Diagram: Cancel Appointment</td>
                               </tr>
                               <tr className="bg-gray-50">
                                 <td className="font-bold text-blue-800 pr-4 py-2">Preconditions</td>
-                                <td className="py-2">User is authenticated<br/>User has an existing appointment</td>
+                                <td className="py-2">User is authenticated<br />User has an existing appointment</td>
                               </tr>
                               <tr>
                                 <td className="font-bold text-blue-800 pr-4 py-2">Postconditions</td>
-                                <td className="py-2">- Appointment instance a is marked as cancelled (attribute modification)<br/>- Associated slot is released (attribute modification)<br/>- Notifications sent to user and business (notification sent)</td>
+                                <td className="py-2">- Appointment instance a is marked as cancelled (attribute modification)<br />- Associated slot is released (attribute modification)<br />- Notifications sent to user and business (notification sent)</td>
                               </tr>
                             </tbody>
                           </table>
@@ -930,7 +930,7 @@ const CaseStudy = () => {
                               </tr>
                               <tr>
                                 <td className="font-bold text-blue-800 pr-4 py-2">Cross References</td>
-                                <td className="py-2">Use Case: Set Available Appointment Slots<br/>Sequence Diagram: Set Slots</td>
+                                <td className="py-2">Use Case: Set Available Appointment Slots<br />Sequence Diagram: Set Slots</td>
                               </tr>
                               <tr className="bg-gray-50">
                                 <td className="font-bold text-blue-800 pr-4 py-2">Preconditions</td>
@@ -938,7 +938,7 @@ const CaseStudy = () => {
                               </tr>
                               <tr>
                                 <td className="font-bold text-blue-800 pr-4 py-2">Postconditions</td>
-                                <td className="py-2">- New slot instances are created (instance creation)<br/>- Slots are associated with business (association formed)<br/>- Slots become available for booking (attribute modification)</td>
+                                <td className="py-2">- New slot instances are created (instance creation)<br />- Slots are associated with business (association formed)<br />- Slots become available for booking (attribute modification)</td>
                               </tr>
                             </tbody>
                           </table>
@@ -954,7 +954,7 @@ const CaseStudy = () => {
                               </tr>
                               <tr>
                                 <td className="font-bold text-blue-800 pr-4 py-2">Cross References</td>
-                                <td className="py-2">Use Case: View Daily Schedule<br/>Sequence Diagram: View Schedule</td>
+                                <td className="py-2">Use Case: View Daily Schedule<br />Sequence Diagram: View Schedule</td>
                               </tr>
                               <tr className="bg-gray-50">
                                 <td className="font-bold text-blue-800 pr-4 py-2">Preconditions</td>
@@ -962,7 +962,7 @@ const CaseStudy = () => {
                               </tr>
                               <tr>
                                 <td className="font-bold text-blue-800 pr-4 py-2">Postconditions</td>
-                                <td className="py-2">- Schedule data is retrieved (data retrieval)<br/>- Schedule is displayed to the business user (output shown)</td>
+                                <td className="py-2">- Schedule data is retrieved (data retrieval)<br />- Schedule is displayed to the business user (output shown)</td>
                               </tr>
                             </tbody>
                           </table>
@@ -978,15 +978,15 @@ const CaseStudy = () => {
                               </tr>
                               <tr>
                                 <td className="font-bold text-blue-800 pr-4 py-2">Cross References</td>
-                                <td className="py-2">Use Case: Create New User Account<br/>Sequence Diagram: Create User</td>
+                                <td className="py-2">Use Case: Create New User Account<br />Sequence Diagram: Create User</td>
                               </tr>
                               <tr className="bg-gray-50">
                                 <td className="font-bold text-blue-800 pr-4 py-2">Preconditions</td>
-                                <td className="py-2">Admin is authenticated<br/>User/email does not already exist</td>
+                                <td className="py-2">Admin is authenticated<br />User/email does not already exist</td>
                               </tr>
                               <tr>
                                 <td className="font-bold text-blue-800 pr-4 py-2">Postconditions</td>
-                                <td className="py-2">- User account instance u is created (instance creation)<br/>- Credentials are sent to the user (notification sent)</td>
+                                <td className="py-2">- User account instance u is created (instance creation)<br />- Credentials are sent to the user (notification sent)</td>
                               </tr>
                             </tbody>
                           </table>
@@ -1002,15 +1002,15 @@ const CaseStudy = () => {
                               </tr>
                               <tr>
                                 <td className="font-bold text-blue-800 pr-4 py-2">Cross References</td>
-                                <td className="py-2">Use Case: Deactivate User Account<br/>Sequence Diagram: Deactivate User</td>
+                                <td className="py-2">Use Case: Deactivate User Account<br />Sequence Diagram: Deactivate User</td>
                               </tr>
                               <tr className="bg-gray-50">
                                 <td className="font-bold text-blue-800 pr-4 py-2">Preconditions</td>
-                                <td className="py-2">Admin is authenticated<br/>User account exists and is active</td>
+                                <td className="py-2">Admin is authenticated<br />User account exists and is active</td>
                               </tr>
                               <tr>
                                 <td className="font-bold text-blue-800 pr-4 py-2">Postconditions</td>
-                                <td className="py-2">- User account is marked as inactive (attribute modification)<br/>- User access is revoked (effect enforcement)</td>
+                                <td className="py-2">- User account is marked as inactive (attribute modification)<br />- User access is revoked (effect enforcement)</td>
                               </tr>
                             </tbody>
                           </table>
@@ -1074,7 +1074,7 @@ const CaseStudy = () => {
                     </div>
                   )}
                 </div>
-               
+
                 {/* API_INTEGRATION.md */}
                 <div className="border rounded-lg">
                   <button
@@ -1653,7 +1653,7 @@ const CaseStudy = () => {
             </div>
 
             <div className="bg-white rounded-xl shadow-lg p-8">
-              <h3 className="text-xl font-semibold text-gray-900 mb-6">Technical Documentation</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-6">Technical Documentation - Extended</h3>
               {/* Schedulink - System Description (Collapsible) */}
               <div className="border rounded-lg">
                 <button
@@ -1738,7 +1738,7 @@ const CaseStudy = () => {
                 )}
               </div>
               {/* Actors in Schedulink (Collapsible) */}
-              <div className="h-4 md:h-12" />
+              <div className="h-2 md:h-4" />
               <div className="border rounded-lg">
                 <button
                   onClick={() => toggleDoc('actorsInSchedulink')}
@@ -1787,7 +1787,7 @@ const CaseStudy = () => {
                 )}
               </div>
               {/* Schedulink - Fully Dressed Use Cases */}
-              <div className="h-4 md:h-12" />
+              <div className="h-2 md:h-4" />
               <div className="border rounded-lg">
                 <button
                   onClick={() => toggleDoc('schedulinkFullyDressedUseCases')}
@@ -1862,7 +1862,7 @@ const CaseStudy = () => {
                           </table>
                         </div>
                       </div>
-                       {/* Use Case 2 */}
+                      {/* Use Case 2 */}
                       <div className="bg-blue-50 p-4 rounded-xl shadow mt-8">
                         <h6 className="font-semibold mb-1">Use Case 2: Reschedule Appointment</h6>
                         <div className="overflow-x-auto">
@@ -1916,7 +1916,7 @@ const CaseStudy = () => {
                           </table>
                         </div>
                       </div>
-                        {/* Use Case 3 */}
+                      {/* Use Case 3 */}
                       <div className="bg-blue-50 p-4 rounded-xl shadow mt-8">
                         <h6 className="font-semibold mb-1">Use Case 3: Set Available Appointment Slots</h6>
                         <div className="overflow-x-auto">
@@ -1968,7 +1968,7 @@ const CaseStudy = () => {
                           </table>
                         </div>
                       </div>
-                       {/* Use Case 4 */}
+                      {/* Use Case 4 */}
                       <div className="bg-blue-50 p-4 rounded-xl shadow mt-8">
                         <h6 className="font-semibold mb-1">Use Case 4: Create New User Account</h6>
                         <div className="overflow-x-auto">
@@ -2021,58 +2021,58 @@ const CaseStudy = () => {
                         </div>
                       </div>
                       {/* Use Case 5 */}
-                        <div className="bg-blue-50 p-4 rounded-xl shadow mt-8">
-                          <h6 className="font-semibold mb-1">Use Case 5: Cancel Appointment</h6>
-                          <div className="overflow-x-auto">
-                            <table className="min-w-full text-sm mb-6">
-                              <tbody>
-                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Use Case Name</td><td className="py-1">Cancel Appointment</td></tr>
-                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Scenario Name</td><td className="py-1">Sarah cancels her scheduled dental appointment</td></tr>
-                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Level</td><td className="py-1">User Goal</td></tr>
-                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Triggering Event</td><td className="py-1">User selects "Cancel" on an appointment</td></tr>
-                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Brief Description</td><td className="py-1">Cancels an existing booking and frees up the slot.</td></tr>
-                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Actors</td><td className="py-1">User (Sarah), Business, System</td></tr>
-                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Use Cases</td><td className="py-1">Appointment Management</td></tr>
-                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Stakeholders</td><td className="py-1">
-                                  <ul className="list-disc ml-6">
-                                    <li>User: Needs to cancel easily.</li>
-                                    <li>Business: Wants notification.</li>
-                                    <li>Admin: Wants accurate records.</li>
-                                  </ul>
-                                </td></tr>
-                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Pre-Condition</td><td className="py-1">Appointment exists; User is logged in.</td></tr>
-                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Post-Condition</td><td className="py-1">Appointment canceled; Notifications sent; Slot freed.</td></tr>
-                                <tr>
-                                  <td className="font-semibold pr-4 py-1 text-gray-700 align-top">Flow of Events</td>
-                                  <td className="py-1">
-                                    <table className="min-w-full text-xs border">
-                                      <thead>
-                                        <tr className="bg-blue-100">
-                                          <th className="px-2 py-1 border">Actor</th>
-                                          <th className="px-2 py-1 border">Action</th>
-                                          <th className="px-2 py-1 border">System Response</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        <tr><td className="border px-2 py-1">Sarah</td><td className="border px-2 py-1">Logs in</td><td className="border px-2 py-1"></td></tr>
-                                        <tr><td className="border px-2 py-1">Sarah</td><td className="border px-2 py-1">Goes to appointments</td><td className="border px-2 py-1"></td></tr>
-                                        <tr><td className="border px-2 py-1">Sarah</td><td className="border px-2 py-1">Selects appointment to cancel</td><td className="border px-2 py-1">Receives request, cancels appointment, frees slot, sends notification</td></tr>
-                                      </tbody>
-                                    </table>
-                                  </td>
-                                </tr>
-                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Extensions</td><td className="py-1">Appointment past: Cannot be canceled.</td></tr>
-                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Exceptional Scenarios</td><td className="py-1">
-                                  <ul className="list-disc ml-6">
-                                    <li>Network failure: Cancellation fails, user prompted to retry.</li>
-                                  </ul>
-                                </td></tr>
-                                <tr><td className="font-semibold pr-4 py-1 text-gray-700">Technology/Data Variations</td><td className="py-1">Web/Mobile interface; Email/SMS notifications; Appointment data in relational DB.</td></tr>
-                              </tbody>
-                            </table>
-                          </div>
+                      <div className="bg-blue-50 p-4 rounded-xl shadow mt-8">
+                        <h6 className="font-semibold mb-1">Use Case 5: Cancel Appointment</h6>
+                        <div className="overflow-x-auto">
+                          <table className="min-w-full text-sm mb-6">
+                            <tbody>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Use Case Name</td><td className="py-1">Cancel Appointment</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Scenario Name</td><td className="py-1">Sarah cancels her scheduled dental appointment</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Level</td><td className="py-1">User Goal</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Triggering Event</td><td className="py-1">User selects "Cancel" on an appointment</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Brief Description</td><td className="py-1">Cancels an existing booking and frees up the slot.</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Actors</td><td className="py-1">User (Sarah), Business, System</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Use Cases</td><td className="py-1">Appointment Management</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Stakeholders</td><td className="py-1">
+                                <ul className="list-disc ml-6">
+                                  <li>User: Needs to cancel easily.</li>
+                                  <li>Business: Wants notification.</li>
+                                  <li>Admin: Wants accurate records.</li>
+                                </ul>
+                              </td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Pre-Condition</td><td className="py-1">Appointment exists; User is logged in.</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Post-Condition</td><td className="py-1">Appointment canceled; Notifications sent; Slot freed.</td></tr>
+                              <tr>
+                                <td className="font-semibold pr-4 py-1 text-gray-700 align-top">Flow of Events</td>
+                                <td className="py-1">
+                                  <table className="min-w-full text-xs border">
+                                    <thead>
+                                      <tr className="bg-blue-100">
+                                        <th className="px-2 py-1 border">Actor</th>
+                                        <th className="px-2 py-1 border">Action</th>
+                                        <th className="px-2 py-1 border">System Response</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr><td className="border px-2 py-1">Sarah</td><td className="border px-2 py-1">Logs in</td><td className="border px-2 py-1"></td></tr>
+                                      <tr><td className="border px-2 py-1">Sarah</td><td className="border px-2 py-1">Goes to appointments</td><td className="border px-2 py-1"></td></tr>
+                                      <tr><td className="border px-2 py-1">Sarah</td><td className="border px-2 py-1">Selects appointment to cancel</td><td className="border px-2 py-1">Receives request, cancels appointment, frees slot, sends notification</td></tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Extensions</td><td className="py-1">Appointment past: Cannot be canceled.</td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Exceptional Scenarios</td><td className="py-1">
+                                <ul className="list-disc ml-6">
+                                  <li>Network failure: Cancellation fails, user prompted to retry.</li>
+                                </ul>
+                              </td></tr>
+                              <tr><td className="font-semibold pr-4 py-1 text-gray-700">Technology/Data Variations</td><td className="py-1">Web/Mobile interface; Email/SMS notifications; Appointment data in relational DB.</td></tr>
+                            </tbody>
+                          </table>
                         </div>
-                         {/* Use Case 6 */}
+                      </div>
+                      {/* Use Case 6 */}
                       <div className="bg-blue-50 p-4 rounded-xl shadow mt-8">
                         <h6 className="font-semibold mb-1">Use Case 6: View Daily Schedule</h6>
                         <div className="overflow-x-auto">
@@ -2180,272 +2180,280 @@ const CaseStudy = () => {
                 )}
               </div>
               {/* Schedulink -  Domain Diagram */}
-                <div className="border rounded-lg">
-                  <button
-                    onClick={() => toggleDoc('domainDiagram')}
-                    className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-purple-100 rounded flex items-center justify-center">
-                        <span className="text-xs font-mono">🏷️</span>
-                      </div>
-                      <div className="text-left">
-                        <div className="font-medium text-gray-900">Schedulink - Domain Diagram</div>
-                        <div className="text-sm text-gray-600">Domain diagram for Schedulink</div>
-                      </div>
+              <div className="h-2 md:h-4" />
+
+              <div className="border rounded-lg">
+                <button
+                  onClick={() => toggleDoc('domainDiagram')}
+                  className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-purple-100 rounded flex items-center justify-center">
+                      <span className="text-xs font-mono">🏷️</span>
                     </div>
-                    {expandedDocs.domainDiagram ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
-                  </button>
-                  {expandedDocs.domainDiagram && (
-                    <div className="p-6 border-t bg-white flex flex-col items-center">
-                      <img
-                        src="/images/domain_diagram.png"
-                        alt="Schedulink Domain Diagram"
-                        className="max-w-full h-auto rounded shadow"
-                      />
+                    <div className="text-left">
+                      <div className="font-medium text-gray-900">Schedulink - Domain Diagram</div>
+                      <div className="text-sm text-gray-600">Domain diagram for Schedulink</div>
                     </div>
-                  )}
-                </div>
-                {/* Schedulink -  Collaboration Diagram */}
-                <div className="border rounded-lg">
-                  <button
-                    onClick={() => toggleDoc('collaborationDiagram')}
-                    className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-purple-100 rounded flex items-center justify-center">
-                        <span className="text-xs font-mono">🧑‍🤝‍🧑</span>
-                      </div>
-                      <div className="text-left">
-                        <div className="font-medium text-gray-900">Schedulink - Collaboration Diagram</div>
-                        <div className="text-sm text-gray-600">Collaboration diagram for Schedulink</div>
-                      </div>
+                  </div>
+                  {expandedDocs.domainDiagram ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+                </button>
+                {expandedDocs.domainDiagram && (
+                  <div className="p-6 border-t bg-white flex flex-col items-center">
+                    <img
+                      src="/images/domain_diagram.png"
+                      alt="Schedulink Domain Diagram"
+                      className="max-w-full h-auto rounded shadow"
+                    />
+                  </div>
+                )}
+              </div>
+              {/* Schedulink -  Collaboration Diagram */}
+              <div className="h-2 md:h-4" />
+
+              <div className="border rounded-lg">
+                <button
+                  onClick={() => toggleDoc('collaborationDiagram')}
+                  className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-purple-100 rounded flex items-center justify-center">
+                      <span className="text-xs font-mono">🧑‍🤝‍🧑</span>
                     </div>
-                    {expandedDocs.collaborationDiagram ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
-                  </button>
-                  {expandedDocs.collaborationDiagram && (
-                    <div className="p-6 border-t bg-white flex flex-col items-center">
-                      <img
-                        src="/images/colloboration_diagram.png"
-                        alt="Schedulink Collaboration Diagram"
-                        className="max-w-full h-auto rounded shadow"
-                      />
+                    <div className="text-left">
+                      <div className="font-medium text-gray-900">Schedulink - Collaboration Diagram</div>
+                      <div className="text-sm text-gray-600">Collaboration diagram for Schedulink</div>
                     </div>
-                  )}
+                  </div>
+                  {expandedDocs.collaborationDiagram ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+                </button>
+                {expandedDocs.collaborationDiagram && (
+                  <div className="p-6 border-t bg-white flex flex-col items-center">
+                    <img
+                      src="/images/colloboration_diagram.png"
+                      alt="Schedulink Collaboration Diagram"
+                      className="max-w-full h-auto rounded shadow"
+                    />
+                  </div>
+                )}
               </div>
               {/* Schedulink CRC Cards*/}
-                <div className="border rounded-lg">
-                  <button
-                    onClick={() => toggleDoc('crcCards')}
-                    className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-orange-100 rounded flex items-center justify-center">
-                        <span className="text-xs font-mono">🧑‍💻</span>
+              <div className="h-2 md:h-4" />
+
+              <div className="border rounded-lg">
+                <button
+                  onClick={() => toggleDoc('crcCards')}
+                  className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-orange-100 rounded flex items-center justify-center">
+                      <span className="text-xs font-mono">🧑‍💻</span>
+                    </div>
+                    <div className="text-left">
+                      <div className="font-medium text-gray-900">Schedulink Class-Responsibility-Collaborator (CRC) Cards</div>
+                      <div className="text-sm text-gray-600">CRC Cards are used to identify the responsibilities of classes in the system.</div>
+                    </div>
+                  </div>
+                  {expandedDocs.crcCards ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+                </button>
+                {expandedDocs.crcCards && (
+                  <div className="p-6 border-t bg-white">
+                    <div className="space-y-8">
+                      {/* User */}
+                      <div>
+                        <h6 className="font-semibold mb-2">User</h6>
+                        <table className="min-w-full text-sm mb-2">
+                          <tbody className="bg-white divide-y divide-gray-200">
+                            <tr className="bg-gray-50">
+                              <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
+                              <td className="py-2">Register and manage personal info<br />Book, reschedule, and cancel appointments<br />View appointments and notifications</td>
+                            </tr>
+                            <tr>
+                              <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
+                              <td className="py-2">Account, Appointment, AppointmentSlot, Notification</td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
-                      <div className="text-left">
-                        <div className="font-medium text-gray-900">Schedulink Class-Responsibility-Collaborator (CRC) Cards</div>
-                        <div className="text-sm text-gray-600">CRC Cards are used to identify the responsibilities of classes in the system.</div>
+                      {/* Business */}
+                      <div>
+                        <h6 className="font-semibold mb-2">Business</h6>
+                        <table className="min-w-full text-sm mb-2">
+                          <tbody className="bg-white divide-y divide-gray-200">
+                            <tr className="bg-gray-50">
+                              <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
+                              <td className="py-2">Manage business profile and availability<br />Set/update available slots<br />View and manage appointments</td>
+                            </tr>
+                            <tr>
+                              <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
+                              <td className="py-2">AppointmentSlot, Schedule, Appointment</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      {/* Admin */}
+                      <div>
+                        <h6 className="font-semibold mb-2">Admin</h6>
+                        <table className="min-w-full text-sm mb-2">
+                          <tbody className="bg-white divide-y divide-gray-200">
+                            <tr className="bg-gray-50">
+                              <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
+                              <td className="py-2">Create/deactivate user & business accounts<br />Oversee system operations</td>
+                            </tr>
+                            <tr>
+                              <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
+                              <td className="py-2">User, Account, Business</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      {/* Appointment */}
+                      <div>
+                        <h6 className="font-semibold mb-2">Appointment</h6>
+                        <table className="min-w-full text-sm mb-2">
+                          <tbody className="bg-white divide-y divide-gray-200">
+                            <tr className="bg-gray-50">
+                              <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
+                              <td className="py-2">Store appointment details and status<br />Link user, slot, and business<br />Notify parties of changes</td>
+                            </tr>
+                            <tr>
+                              <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
+                              <td className="py-2">User, Business, AppointmentSlot, Notification</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      {/* AppointmentSlot */}
+                      <div>
+                        <h6 className="font-semibold mb-2">AppointmentSlot</h6>
+                        <table className="min-w-full text-sm mb-2">
+                          <tbody className="bg-white divide-y divide-gray-200">
+                            <tr className="bg-gray-50">
+                              <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
+                              <td className="py-2">Represent available or booked time slots<br />Update slot status</td>
+                            </tr>
+                            <tr>
+                              <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
+                              <td className="py-2">Business, Appointment</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      {/* Schedule */}
+                      <div>
+                        <h6 className="font-semibold mb-2">Schedule</h6>
+                        <table className="min-w-full text-sm mb-2">
+                          <tbody className="bg-white divide-y divide-gray-200">
+                            <tr className="bg-gray-50">
+                              <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
+                              <td className="py-2">Aggregate appointments for a period<br />Provide schedule view/reporting</td>
+                            </tr>
+                            <tr>
+                              <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
+                              <td className="py-2">Appointment, Business</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      {/* Account */}
+                      <div>
+                        <h6 className="font-semibold mb-2">Account</h6>
+                        <table className="min-w-full text-sm mb-2">
+                          <tbody className="bg-white divide-y divide-gray-200">
+                            <tr className="bg-gray-50">
+                              <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
+                              <td className="py-2">Store authentication and profile info<br />Manage account status</td>
+                            </tr>
+                            <tr>
+                              <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
+                              <td className="py-2">User, Admin, AuthenticationService</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      {/* Notification */}
+                      <div>
+                        <h6 className="font-semibold mb-2">Notification</h6>
+                        <table className="min-w-full text-sm mb-2">
+                          <tbody className="bg-white divide-y divide-gray-200">
+                            <tr className="bg-gray-50">
+                              <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
+                              <td className="py-2">Store notification data<br />Deliver notifications to users</td>
+                            </tr>
+                            <tr>
+                              <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
+                              <td className="py-2">User, Appointment, NotificationService</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      {/* NotificationService */}
+                      <div>
+                        <h6 className="font-semibold mb-2">NotificationService</h6>
+                        <table className="min-w-full text-sm mb-2">
+                          <tbody className="bg-white divide-y divide-gray-200">
+                            <tr className="bg-gray-50">
+                              <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
+                              <td className="py-2">Send notifications (email, SMS, etc.)</td>
+                            </tr>
+                            <tr>
+                              <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
+                              <td className="py-2">Notification, User, Appointment</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      {/* AuthenticationService */}
+                      <div>
+                        <h6 className="font-semibold mb-2">AuthenticationService</h6>
+                        <table className="min-w-full text-sm mb-2">
+                          <tbody className="bg-white divide-y divide-gray-200">
+                            <tr className="bg-gray-50">
+                              <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
+                              <td className="py-2">Authenticate users, manage sessions</td>
+                            </tr>
+                            <tr>
+                              <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
+                              <td className="py-2">Account, User</td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </div>
-                    {expandedDocs.crcCards ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
-                  </button>
-                  {expandedDocs.crcCards && (
-                    <div className="p-6 border-t bg-white">
-                      <div className="space-y-8">
-                        {/* User */}
-                        <div>
-                          <h6 className="font-semibold mb-2">User</h6>
-                          <table className="min-w-full text-sm mb-2">
-                            <tbody className="bg-white divide-y divide-gray-200">
-                              <tr className="bg-gray-50">
-                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
-                                <td className="py-2">Register and manage personal info<br/>Book, reschedule, and cancel appointments<br/>View appointments and notifications</td>
-                              </tr>
-                              <tr>
-                                <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
-                                <td className="py-2">Account, Appointment, AppointmentSlot, Notification</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        {/* Business */}
-                        <div>
-                          <h6 className="font-semibold mb-2">Business</h6>
-                          <table className="min-w-full text-sm mb-2">
-                            <tbody className="bg-white divide-y divide-gray-200">
-                              <tr className="bg-gray-50">
-                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
-                                <td className="py-2">Manage business profile and availability<br/>Set/update available slots<br/>View and manage appointments</td>
-                              </tr>
-                              <tr>
-                                <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
-                                <td className="py-2">AppointmentSlot, Schedule, Appointment</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        {/* Admin */}
-                        <div>
-                          <h6 className="font-semibold mb-2">Admin</h6>
-                          <table className="min-w-full text-sm mb-2">
-                            <tbody className="bg-white divide-y divide-gray-200">
-                              <tr className="bg-gray-50">
-                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
-                                <td className="py-2">Create/deactivate user & business accounts<br/>Oversee system operations</td>
-                              </tr>
-                              <tr>
-                                <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
-                                <td className="py-2">User, Account, Business</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        {/* Appointment */}
-                        <div>
-                          <h6 className="font-semibold mb-2">Appointment</h6>
-                          <table className="min-w-full text-sm mb-2">
-                            <tbody className="bg-white divide-y divide-gray-200">
-                              <tr className="bg-gray-50">
-                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
-                                <td className="py-2">Store appointment details and status<br/>Link user, slot, and business<br/>Notify parties of changes</td>
-                              </tr>
-                              <tr>
-                                <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
-                                <td className="py-2">User, Business, AppointmentSlot, Notification</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        {/* AppointmentSlot */}
-                        <div>
-                          <h6 className="font-semibold mb-2">AppointmentSlot</h6>
-                          <table className="min-w-full text-sm mb-2">
-                            <tbody className="bg-white divide-y divide-gray-200">
-                              <tr className="bg-gray-50">
-                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
-                                <td className="py-2">Represent available or booked time slots<br/>Update slot status</td>
-                              </tr>
-                              <tr>
-                                <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
-                                <td className="py-2">Business, Appointment</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        {/* Schedule */}
-                        <div>
-                          <h6 className="font-semibold mb-2">Schedule</h6>
-                          <table className="min-w-full text-sm mb-2">
-                            <tbody className="bg-white divide-y divide-gray-200">
-                              <tr className="bg-gray-50">
-                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
-                                <td className="py-2">Aggregate appointments for a period<br/>Provide schedule view/reporting</td>
-                              </tr>
-                              <tr>
-                                <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
-                                <td className="py-2">Appointment, Business</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        {/* Account */}
-                        <div>
-                          <h6 className="font-semibold mb-2">Account</h6>
-                          <table className="min-w-full text-sm mb-2">
-                            <tbody className="bg-white divide-y divide-gray-200">
-                              <tr className="bg-gray-50">
-                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
-                                <td className="py-2">Store authentication and profile info<br/>Manage account status</td>
-                              </tr>
-                              <tr>
-                                <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
-                                <td className="py-2">User, Admin, AuthenticationService</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        {/* Notification */}
-                        <div>
-                          <h6 className="font-semibold mb-2">Notification</h6>
-                          <table className="min-w-full text-sm mb-2">
-                            <tbody className="bg-white divide-y divide-gray-200">
-                              <tr className="bg-gray-50">
-                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
-                                <td className="py-2">Store notification data<br/>Deliver notifications to users</td>
-                              </tr>
-                              <tr>
-                                <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
-                                <td className="py-2">User, Appointment, NotificationService</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        {/* NotificationService */}
-                        <div>
-                          <h6 className="font-semibold mb-2">NotificationService</h6>
-                          <table className="min-w-full text-sm mb-2">
-                            <tbody className="bg-white divide-y divide-gray-200">
-                              <tr className="bg-gray-50">
-                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
-                                <td className="py-2">Send notifications (email, SMS, etc.)</td>
-                              </tr>
-                              <tr>
-                                <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
-                                <td className="py-2">Notification, User, Appointment</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        {/* AuthenticationService */}
-                        <div>
-                          <h6 className="font-semibold mb-2">AuthenticationService</h6>
-                          <table className="min-w-full text-sm mb-2">
-                            <tbody className="bg-white divide-y divide-gray-200">
-                              <tr className="bg-gray-50">
-                                <td className="font-bold text-blue-800 pr-4 py-2 w-48">Responsibilities</td>
-                                <td className="py-2">Authenticate users, manage sessions</td>
-                              </tr>
-                              <tr>
-                                <td className="font-bold text-blue-800 pr-4 py-2">Collaborators</td>
-                                <td className="py-2">Account, User</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
+                  </div>
+                )}
+              </div>
+              {/* Schedulink - State Transition Diagram */}
+              <div className="h-2 md:h-4" />
+
+              <div className="border rounded-lg">
+                <button
+                  onClick={() => toggleDoc('stateTransitionDiagram')}
+                  className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-purple-100 rounded flex items-center justify-center">
+                      <span className="text-xs font-mono">🛠️</span>
                     </div>
-                  )}
-                </div>
-                {/* Schedulink - State Transition Diagram */}
-                <div className="border rounded-lg">
-                  <button
-                    onClick={() => toggleDoc('stateTransitionDiagram')}
-                    className="w-full flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-purple-100 rounded flex items-center justify-center">
-                        <span className="text-xs font-mono">🛠️</span>
-                      </div>
-                      <div className="text-left">
-                        <div className="font-medium text-gray-900">Schedulink - State Transition Diagram</div>
-                        <div className="text-sm text-gray-600">State transition diagram for Schedulink</div>
-                      </div>
+                    <div className="text-left">
+                      <div className="font-medium text-gray-900">Schedulink - State Transition Diagram</div>
+                      <div className="text-sm text-gray-600">State transition diagram for Schedulink</div>
                     </div>
-                    {expandedDocs.stateTransitionDiagram ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
-                  </button>
-                  {expandedDocs.stateTransitionDiagram && (
-                    <div className="p-6 border-t bg-white flex flex-col items-center">
-                      <img
-                        src="/images/state_transition_diagram.png"
-                        alt="Schedulink State Transition Diagram"
-                        className="max-w-full h-auto rounded shadow"
-                      />
-                    </div>
-                  )}
-                </div>
+                  </div>
+                  {expandedDocs.stateTransitionDiagram ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+                </button>
+                {expandedDocs.stateTransitionDiagram && (
+                  <div className="p-6 border-t bg-white flex flex-col items-center">
+                    <img
+                      src="/images/state_transition_diagram.png"
+                      alt="Schedulink State Transition Diagram"
+                      className="max-w-full h-auto rounded shadow"
+                    />
+                  </div>
+                )}
+              </div>
             </div>
-            
+
           </div>
         </div>
 
