@@ -64,8 +64,8 @@ const ZoomableImageWithPan = ({ src, alt, maxZoom = 2, minZoom = 1, step = 0.2, 
 
   return (
     <div
-      className="relative inline-block group select-none"
-      style={{ maxWidth: 600, cursor: zoom > 1 ? (dragging ? 'grabbing' : 'grab') : 'zoom-in' }}
+      className="relative w-full group select-none"
+      style={{ cursor: zoom > 1 ? (dragging ? 'grabbing' : 'grab') : 'zoom-in' }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       ref={containerRef}
@@ -83,7 +83,9 @@ const ZoomableImageWithPan = ({ src, alt, maxZoom = 2, minZoom = 1, step = 0.2, 
           transition: dragging ? 'none' : 'transform 0.3s',
           transform: `scale(${zoom}) translate(${clampedOffset.x / zoom}px, ${clampedOffset.y / zoom}px)`,
           borderRadius: 8,
-          boxShadow: '0 2px 8px rgba(0,0,0,0.12)'
+          boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
+          width: '100%',
+          objectFit: 'contain',
         }}
         className="w-full h-auto"
         {...props}
