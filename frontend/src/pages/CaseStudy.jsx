@@ -226,6 +226,17 @@ const CaseStudy = () => {
               <p className="text-center text-sm text-gray-500 mt-4 italic">
                 Comprehensive system architecture showcasing the complete Schedulink platform infrastructure
               </p>
+                <div className="mt-8">
+                  <img
+                    src="/images/pipeline_diagram.png"
+                    alt="Schedulink Pipeline Architecture Diagram"
+                    className="w-full h-auto rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300"
+                    style={{ filter: 'invert(1)', objectFit: 'contain', width: '100%' }}
+                  />
+                </div>
+                <p className="text-center text-sm text-gray-500 mt-4 italic">
+                  CI/CD pipeline architecture for Schedulink platform
+                </p>
             </div>
           </div>
         </div>
